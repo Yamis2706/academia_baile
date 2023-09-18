@@ -110,6 +110,4 @@ public class Academia {
         System.out.println("El promedio del precio de los cursos es: " + promedioPrecio);
         return promedioPrecio;
     }
-
-    
 }
