@@ -1,49 +1,43 @@
 package co.edu.uniquindio.academia_baile;
 
+import co.edu.uniquindio.academia_baile.model.Academia;
 import co.edu.uniquindio.academia_baile.model.Curso;
 import co.edu.uniquindio.academia_baile.model.Vestuario;
-
 
 public class Main {
     public static void main(String[] args) {
 
-        Curso curso = inicializaDatosPrueba();
-
-        curso.mostrarInformacionCurso();
-
+        Academia academiaBaile = inicializaDatosPrueba();
+        academiaBaile.mostrarInformacionCurso();
 
     }
 
-    private static Curso inicializaDatosPrueba() {
-        Curso curso1 = crearCurso1("Salsa","Adultos","Alto","Sí",
+    private static Academia inicializaDatosPrueba() {
+        Curso cursoSalsa = crearCurso("Salsa","Adultos","Alto","Sí",
                 "6-9 pm",180000);
-        Curso curso2 = crearCurso2("Cumbia","Juvenil","Medio","Sí",
+        Curso cursoCumbia = crearCurso("Cumbia","Juvenil","Medio","Sí",
                 "4-6 pm",150000);
-        Curso curso3 = crearCurso3("Ballet","Pre-juvenil","Alto","Sí",
+        Curso cursoBallet = crearCurso("Ballet","Pre-juvenil","Alto","Sí",
                 "2-5 pm",220000);
-        Curso curso = null;
-
-        curso.setCurso1(curso1);
-        curso.setCurso2(curso2);
-        curso.setCurso3(curso3);
-
-        return curso;
+        Vestuario vestuarioFormal = new Vestuario ("Formal", "Nuevo", "M", "lentejuelas", 560000, 0.1);
+        Vestuario vestuarioEnsayo = new Vestuario ("Ensayo", "Usado", "S", "Dácron", 480000, 0.05);
+        Vestuario vestuarioCompetencia = new Vestuario ("Competencia", "Nuevo", "XS", "licra Power", 390000, 0.03);
+        Academia academiaBaile = new Academia ("Baila por tus sueños", "Armenia - Quindío", cursoSalsa, cursoCumbia, cursoBallet, vestuarioFormal, vestuarioEnsayo, vestuarioCompetencia);
+        academiaBaile.setCursoSalsa(cursoSalsa);
+        academiaBaile.setCursoCumbia(cursoCumbia);
+        academiaBaile.setCursoBallet(cursoBallet);
+        return academiaBaile;
     }
-
 
     private static Curso crearCurso(String tipoBaile, String categoria, String nivel,
-                                    String vestuario, String horario, double precioMes){
+                                    String profesor, String horario, double precioMes){
         Curso curso = new Curso();
         curso.setTipoBaile(tipoBaile);
         curso.setCategoria(categoria);
         curso.setNivel(nivel);
-        curso.setVestuario(vestuario);
+        curso.setProfesor(profesor);
         curso.setHorario(horario);
         curso.setPrecioMes(precioMes);
-
-
         return curso;
     }
-
-
 }

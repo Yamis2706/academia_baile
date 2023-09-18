@@ -1,23 +1,20 @@
 package co.edu.uniquindio.academia_baile.model;
 
-
 public class Curso {
 
     private String tipoBaile;
     private String categoria;
     private String nivel;
-    private String vestuario;
+    private String profesor;
     private String horario;
     private double precioMes;
 
-
-}
     public Curso(String tipoBaile, String categoria, String nivel, String vestuario,
                  String horario, double precioMes) {
         this.tipoBaile = tipoBaile;
         this.categoria = categoria;
         this.nivel = nivel;
-        this.vestuario = vestuario;
+        this.profesor = profesor;
         this.horario = horario;
         this.precioMes = precioMes;
     }
@@ -50,12 +47,12 @@ public class Curso {
         this.nivel = nivel;
     }
 
-    public String getVestuario() {
-        return vestuario;
+    public String getProfesor() {
+        return profesor;
     }
 
-    public void setVestuario(String vestuario) {
-        this.vestuario = vestuario;
+    public void setProfesor(String profesor) {
+        this.profesor = profesor;
     }
 
     public String getHorario() {
@@ -80,30 +77,11 @@ public class Curso {
                 "tipoBaile: "+getTipoBaile() + "\n"+
                 "categoria: "+getCategoria() + "\n"+
                 "nivel: "+getNivel() + "\n"+
-                "vestuario: "+getVestuario() + "\n"+
+                "profesor: "+getProfesor() + "\n"+
                 "Horario: "+getHorario() + "\n"+
-                "precioMes: "+getPrecioMes() + "\n"
+                "precioMes: "+getPrecioMes() + "\n";
 
         return informacion;
     }
-
-
-    public void mostrarInformacionCurso() {
-
-            String informacionCurso1 = getCurso1().obtenerInformacion();
-            String informacionCurso2 = getCurso2().obtenerInformacion();
-            String informacionCurso3 = getCurso3().obtenerInformacion();
-            System.out.println("Informacion del curso 1: "+ informacionCurso1);
-            System.out.println("Informacion del curso 2: "+ informacionCurso2);
-            System.out.println("Informacion del curso 3: "+ informacionCurso3);
-    }
-
-    public void setCurso1(Curso curso1) {
-    }
-
-    public void setCurso2(Curso curso2) {
-    }
-
-    public void setCurso3(Curso curso3) {
-    }
+    
 }
