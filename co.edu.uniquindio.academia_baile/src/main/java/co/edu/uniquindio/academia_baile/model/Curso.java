@@ -1,16 +1,19 @@
 package co.edu.uniquindio.academia_baile.model;
 
+import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
+import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
+import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
+
 public class Curso {
 
-    private String tipoBaile;
-    private String categoria;
-    private String nivel;
+    private TipoBaile tipoBaile;
+    private Categoria categoria;
+    private Nivel nivel;
     private String profesor;
     private String horario;
     private double precioMes;
 
-    public Curso(String tipoBaile, String categoria, String nivel, String vestuario,
-                 String horario, double precioMes) {
+    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, String horario, double precioMes) {
         this.tipoBaile = tipoBaile;
         this.categoria = categoria;
         this.nivel = nivel;
@@ -19,31 +22,27 @@ public class Curso {
         this.precioMes = precioMes;
     }
 
-    public Curso() {
-
-    }
-
-    public String getTipoBaile() {
+    public TipoBaile getTipoBaile() {
         return tipoBaile;
     }
 
-    public void setTipoBaile(String tipoBaile) {
+    public void setTipoBaile(TipoBaile tipoBaile) {
         this.tipoBaile = tipoBaile;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    public String getNivel() {
+    public Nivel getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(Nivel nivel) {
         this.nivel = nivel;
     }
 
@@ -73,15 +72,13 @@ public class Curso {
 
     public String obtenerInformacion() {
         String informacion = "";
-        informacion = informacion +
-                "tipoBaile: "+getTipoBaile() + "\n"+
-                "categoria: "+getCategoria() + "\n"+
-                "nivel: "+getNivel() + "\n"+
-                "profesor: "+getProfesor() + "\n"+
+        informacion = informacion + "\n"+
+                "Tipo Baile: "+getTipoBaile() + "\n"+
+                "Categoria: "+getCategoria() + "\n"+
+                "Nivel: "+getNivel() + "\n"+
+                "Profesor: "+getProfesor() + "\n"+
                 "Horario: "+getHorario() + "\n"+
-                "precioMes: "+getPrecioMes() + "\n";
-
+                "Precio del Mes: "+getPrecioMes() + "\n";
         return informacion;
     }
-    
 }

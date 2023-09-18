@@ -1,15 +1,18 @@
 package co.edu.uniquindio.academia_baile.model;
 
+import co.edu.uniquindio.academia_baile.model.enumeracion.Estado;
+import co.edu.uniquindio.academia_baile.model.enumeracion.Talla;
+import co.edu.uniquindio.academia_baile.model.enumeracion.Tipo;
+
 public class Vestuario {
-    private String tipo;
-    private String estado;
-    private String talla;
+    private Tipo tipo;
+    private Estado estado;
+    private Talla talla;
     private String material;
     private double precio;
     private double descuento;
 
-    public Vestuario(String tipo, String estado, String talla,
-                     String material, double precio, double descuento) {
+    public Vestuario(Tipo tipo, Estado estado, Talla talla, String material, double precio, double descuento) {
         this.tipo = tipo;
         this.estado = estado;
         this.talla = talla;
@@ -18,27 +21,27 @@ public class Vestuario {
         this.descuento = descuento;
     }
 
-    public String getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
-    public String getTalla() {
+    public Talla getTalla() {
         return talla;
     }
 
-    public void setTalla(String talla) {
+    public void setTalla(Talla talla) {
         this.talla = talla;
     }
 

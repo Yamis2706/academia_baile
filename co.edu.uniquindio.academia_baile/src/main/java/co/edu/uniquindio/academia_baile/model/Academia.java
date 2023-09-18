@@ -1,8 +1,5 @@
 package co.edu.uniquindio.academia_baile.model;
 
-import co.edu.uniquindio.academia_baile.model.Curso;
-import co.edu.uniquindio.academia_baile.model.Vestuario;
-
 public class Academia {
 
     private String nombre;
@@ -100,4 +97,19 @@ public class Academia {
         System.out.println("Informacion del curso 2: "+ informacionCurso2);
         System.out.println("Informacion del curso 3: "+ informacionCurso3);
     }
+
+    public double calcularPromedioPrecio(){
+        double precioCursoSalsa = 0.0;
+        double precioCursoCumbia = 0.0;
+        double precioCursoBallet = 0.0;
+        double promedioPrecio = 0.0;
+        precioCursoSalsa = getCursoSalsa().getPrecioMes();
+        precioCursoCumbia = getCursoCumbia().getPrecioMes();
+        precioCursoBallet = getCursoBallet().getPrecioMes();
+        promedioPrecio = (precioCursoSalsa + precioCursoCumbia + precioCursoBallet) / 3;
+        System.out.println("El promedio del precio de los cursos es: " + promedioPrecio);
+        return promedioPrecio;
+    }
+
+    
 }
