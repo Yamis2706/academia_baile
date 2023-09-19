@@ -79,7 +79,7 @@ public class Curso {
                 "Nivel: " + getNivel() + "\n" +
                 "Profesor: " + getProfesor() + "\n" +
                 "Horario: " + getHorario() + "\n" +
-                "Precio del Mes: " + getPrecioMes() + "\n";
+                "Precio del Mes: $ " + getPrecioMes() + "\n";
         return informacion;
     }
 
@@ -91,13 +91,13 @@ public class Curso {
 
     public static void obtenerCursoNivelAlto(Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet){
         if(Nivel.ALTO == cursoSalsa.getNivel()){
-            System.out.println("El curso Salsa es de nivel Alto");
+            System.out.println("El curso SALSA es de nivel ALTO");
         }
         if(Nivel.ALTO == cursoCumbia.getNivel()){
-            System.out.println("El curso Cumbia es de nivel Alto");
+            System.out.println("El curso CUMBIA es de nivel ALTO");
         }
         if(Nivel.ALTO == cursoBallet.getNivel()){
-            System.out.println("El curso Ballet es de nivel Alto");
+            System.out.println("El curso BALLET es de nivel ALTO");
         }
     }
 

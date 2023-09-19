@@ -1,9 +1,6 @@
 package co.edu.uniquindio.academia_baile.model;
 
-import co.edu.uniquindio.academia_baile.model.enumeracion.Estado;
-import co.edu.uniquindio.academia_baile.model.enumeracion.Talla;
-import co.edu.uniquindio.academia_baile.model.enumeracion.Tipo;
-import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
+import co.edu.uniquindio.academia_baile.model.enumeracion.*;
 
 public class Vestuario {
     private Tipo tipo;
@@ -77,8 +74,8 @@ public class Vestuario {
                 "Estado: "+getEstado() + "\n"+
                 "Talla: "+getTalla() + "\n"+
                 "Material: "+getMaterial() + "\n"+
-                "Precio: "+getPrecio() + "\n"+
-                "Descuento: "+getDescuento() + "\n";
+                "Precio: $"+getPrecio() + "\n"+
+                "Descuento: "+getDescuento()*100 + "%" + "\n";
         return informacion;
     }
     
@@ -111,8 +108,25 @@ public class Vestuario {
             descuentoMayor = vestuarioCompetencia.getDescuento();
             nombreDescuentoMayor = vestuarioCompetencia.getTipo();
             }
-        System.out.println("El mayor descuento es del " + descuentoMayor + " %, que corresponde al vestuario " +
+        }
+        System.out.println("El mayor descuento es del " + descuentoMayor * 100 + "%, que corresponde al vestuario " +
                 nombreDescuentoMayor);
+    }
+
+    public static void obtenerVestuarioEstadoNuevo(Vestuario vestuarioFormal, Vestuario vestuarioEnsayo,
+                                                   Vestuario vestuarioCompetencia){
+        Tipo nombreVestuarioEstadoNuevo = vestuarioFormal.getTipo();
+        if(vestuarioFormal.getEstado() == Estado.NUEVO){
+            nombreVestuarioEstadoNuevo = vestuarioFormal.getTipo();
+            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado nuevo");
+        }
+        if(vestuarioEnsayo.getEstado() == Estado.NUEVO){
+            nombreVestuarioEstadoNuevo = vestuarioEnsayo.getTipo();
+            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado nuevo");
+        }
+        if(vestuarioCompetencia.getEstado() == Estado.NUEVO){
+            nombreVestuarioEstadoNuevo = vestuarioCompetencia.getTipo();
+            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado nuevo");
         }
     }
 }

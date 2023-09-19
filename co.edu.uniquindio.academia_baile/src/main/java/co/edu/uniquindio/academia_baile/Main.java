@@ -9,6 +9,7 @@ import static co.edu.uniquindio.academia_baile.model.Curso.obtenerCursoNivelAlto
 import static co.edu.uniquindio.academia_baile.model.Curso.obtenerCursoMenorDuracion;
 import static co.edu.uniquindio.academia_baile.model.Vestuario.calcularPrecioTotal;
 import static co.edu.uniquindio.academia_baile.model.Vestuario.obtenerDescuentoMayor;
+import static co.edu.uniquindio.academia_baile.model.Vestuario.obtenerVestuarioEstadoNuevo;
 
 public class Main {
 
@@ -27,11 +28,8 @@ public class Main {
                 academiaBaile.getVestuarioCompetencia());
         obtenerDescuentoMayor(academiaBaile.getVestuarioFormal(),academiaBaile.getVestuarioEnsayo(),
                 academiaBaile.getVestuarioCompetencia());
-
-
-
-//        academiaBaile.getCursoSalsa().calcularPromedioPrecio(academiaBaile.getCursoSalsa(),academiaBaile.getCursoCumbia(), getCursoBallet);
-
+        obtenerVestuarioEstadoNuevo(academiaBaile.getVestuarioFormal(),academiaBaile.getVestuarioEnsayo(),
+                academiaBaile.getVestuarioCompetencia());
     }
 
     private static Academia inicializaDatosPrueba() {
@@ -43,7 +41,7 @@ public class Main {
                 3,220000);
         Vestuario vestuarioFormal = new Vestuario (Tipo.FORMAL, Estado.NUEVO, Talla.M, "lentejuelas",
                 560000, 0.1);
-        Vestuario vestuarioEnsayo = new Vestuario (Tipo.ENSAYO, Estado.NUEVO, Talla.S, "Dácron",
+        Vestuario vestuarioEnsayo = new Vestuario (Tipo.ENSAYO, Estado.USADO, Talla.S, "Dácron",
                 480000, 0.05);
         Vestuario vestuarioCompetencia = new Vestuario (Tipo.COMPETENCIA, Estado.NUEVO, Talla.XS,
                 "licra Power", 390000, 0.03);
