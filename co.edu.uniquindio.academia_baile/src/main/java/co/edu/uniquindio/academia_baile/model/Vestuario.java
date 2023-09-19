@@ -74,7 +74,7 @@ public class Vestuario {
                 "Estado: "+getEstado() + "\n"+
                 "Talla: "+getTalla() + "\n"+
                 "Material: "+getMaterial() + "\n"+
-                "Precio: $"+getPrecio() + "\n"+
+                "Precio: $ "+getPrecio() + "\n"+
                 "Descuento: "+getDescuento()*100 + "%" + "\n";
         return informacion;
     }
@@ -86,15 +86,15 @@ public class Vestuario {
         double precioTotalVestuario3 = 0.0;
         precioTotalVestuario1 = (vestuarioFormal.getPrecio() - (vestuarioFormal.getPrecio() * 
                 vestuarioFormal.getDescuento()));
-        System.out.println("El precio total del vestuario Formal con el descuento es: $ " + precioTotalVestuario1);
+        System.out.println("El precio total del vestuario FORMAL con el descuento es: $ " + precioTotalVestuario1);
         
         precioTotalVestuario2 = (vestuarioEnsayo.getPrecio() - (vestuarioEnsayo.getPrecio() *
                 vestuarioEnsayo.getDescuento()));
-        System.out.println("El precio total del vestuario Ensayo con el descuento es: $ " + precioTotalVestuario2);
+        System.out.println("El precio total del vestuario ENSAYO con el descuento es: $ " + precioTotalVestuario2);
         
         precioTotalVestuario3 = (vestuarioCompetencia.getPrecio() - (vestuarioCompetencia.getPrecio() *
                 vestuarioCompetencia.getDescuento()));
-        System.out.println("El precio total del vestuario Competencia con el descuento es: $ " + precioTotalVestuario3);
+        System.out.println("El precio total del vestuario COMPETENCIA con el descuento es: $ " + precioTotalVestuario3);
     }
 
     public static void obtenerDescuentoMayor(Vestuario vestuarioFormal, Vestuario vestuarioEnsayo, 
@@ -118,15 +118,15 @@ public class Vestuario {
         Tipo nombreVestuarioEstadoNuevo = vestuarioFormal.getTipo();
         if(vestuarioFormal.getEstado() == Estado.NUEVO){
             nombreVestuarioEstadoNuevo = vestuarioFormal.getTipo();
-            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado nuevo");
+            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado NUEVO");
         }
         if(vestuarioEnsayo.getEstado() == Estado.NUEVO){
             nombreVestuarioEstadoNuevo = vestuarioEnsayo.getTipo();
-            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado nuevo");
+            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado NUEVO");
         }
         if(vestuarioCompetencia.getEstado() == Estado.NUEVO){
             nombreVestuarioEstadoNuevo = vestuarioCompetencia.getTipo();
-            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado nuevo");
+            System.out.println("El vestuario " + nombreVestuarioEstadoNuevo + " se encuentra en estado NUEVO");
         }
     }
 }

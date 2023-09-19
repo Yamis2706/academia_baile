@@ -39,12 +39,12 @@ public class Main {
                 2,150000);
         Curso cursoBallet = new Curso(TipoBaile.BALLET, Categoria.PREJUVENIL, Nivel.ALTO,"Neftaly Malagón",
                 3,220000);
-        Vestuario vestuarioFormal = new Vestuario (Tipo.FORMAL, Estado.NUEVO, Talla.M, "lentejuelas",
+        Vestuario vestuarioFormal = new Vestuario (Tipo.FORMAL, Estado.NUEVO, Talla.M, "Lentejuelas",
                 560000, 0.1);
         Vestuario vestuarioEnsayo = new Vestuario (Tipo.ENSAYO, Estado.USADO, Talla.S, "Dácron",
                 480000, 0.05);
         Vestuario vestuarioCompetencia = new Vestuario (Tipo.COMPETENCIA, Estado.NUEVO, Talla.XS,
-                "licra Power", 390000, 0.03);
+                "Licra Power", 390000, 0.03);
         Academia academiaBaile = new Academia ("Baila por tus sueños", "Armenia - Quindío",
                 cursoSalsa, cursoCumbia, cursoBallet, vestuarioFormal, vestuarioEnsayo, vestuarioCompetencia);
         academiaBaile.setCursoSalsa(cursoSalsa);
