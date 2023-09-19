@@ -72,13 +72,38 @@ public class Curso {
 
     public String obtenerInformacion() {
         String informacion = "";
-        informacion = informacion + "\n"+
-                "Tipo Baile: "+getTipoBaile() + "\n"+
-                "Categoria: "+getCategoria() + "\n"+
-                "Nivel: "+getNivel() + "\n"+
-                "Profesor: "+getProfesor() + "\n"+
-                "Horario: "+getHorario() + "\n"+
-                "Precio del Mes: "+getPrecioMes() + "\n";
+        informacion = informacion + "\n" +
+                "Tipo Baile: " + getTipoBaile() + "\n" +
+                "Categoria: " + getCategoria() + "\n" +
+                "Nivel: " + getNivel() + "\n" +
+                "Profesor: " + getProfesor() + "\n" +
+                "Horario: " + getHorario() + "\n" +
+                "Precio del Mes: " + getPrecioMes() + "\n";
         return informacion;
     }
+
+    public double calcularPromedioPrecio(Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet) {
+        double promedioPrecio = 0.0;
+        promedioPrecio = (cursoSalsa.getPrecioMes() + cursoCumbia.getPrecioMes() + cursoBallet.getPrecioMes()) / 3;
+        return promedioPrecio;
+    }
 }
+
+
+
+
+
+
+
+    //public static double calcularPromedioPrecio(){
+        //double precioCursoSalsa = 0.0;
+        //double precioCursoCumbia = 0.0;
+        //double precioCursoBallet = 0.0;
+        //double promedioPrecio = 0.0;
+        //precioCursoSalsa = getCursoSalsa().getPrecioMes();
+        //precioCursoCumbia = getCursoCumbia().getPrecioMes();
+        //precioCursoBallet = getCursoBallet().getPrecioMes();
+        //promedioPrecio = (precioCursoSalsa + precioCursoCumbia + precioCursoBallet) / 3;
+        //System.out.println("El promedio del precio de los cursos es: " + promedioPrecio);
+        //return promedioPrecio;
+    //}

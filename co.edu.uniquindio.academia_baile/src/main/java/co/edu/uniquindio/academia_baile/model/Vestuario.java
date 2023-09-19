@@ -68,4 +68,16 @@ public class Vestuario {
     public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
+
+    public String obtenerInformacion() {
+        String informacion = "";
+        informacion = informacion + "\n"+
+                "Tipo: "+getTipo() + "\n"+
+                "Estado: "+getEstado() + "\n"+
+                "Talla: "+getTalla() + "\n"+
+                "Material: "+getMaterial() + "\n"+
+                "Precio: "+getPrecio() + "\n"+
+                "Descuento: "+getDescuento() + "\n";
+        return informacion;
+    }
 }

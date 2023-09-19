@@ -10,7 +10,9 @@ public class Main {
     public static void main(String[] args) {
         Academia academiaBaile = inicializaDatosPrueba();
         academiaBaile.mostrarInformacionCurso();
-        academiaBaile.calcularPromedioPrecio();
+        academiaBaile.mostrarInformacionVestuario();
+        double promedioPrecio = academiaBaile.obtenerPromedioPrecio();
+        academiaBaile.mostrarPromedioPrecio(promedioPrecio);
     }
 
     private static Academia inicializaDatosPrueba() {
@@ -39,7 +41,4 @@ public class Main {
         Curso curso = new Curso(tipoBaile, categoria, nivel, profesor, horario, precioMes);
         return curso;
     }
-
-
-
 }

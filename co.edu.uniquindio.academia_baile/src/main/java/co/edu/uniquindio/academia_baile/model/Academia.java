@@ -98,16 +98,23 @@ public class Academia {
         System.out.println("Informacion del curso 3: "+ informacionCurso3);
     }
 
-    public double calcularPromedioPrecio(){
-        double precioCursoSalsa = 0.0;
-        double precioCursoCumbia = 0.0;
-        double precioCursoBallet = 0.0;
-        double promedioPrecio = 0.0;
-        precioCursoSalsa = getCursoSalsa().getPrecioMes();
-        precioCursoCumbia = getCursoCumbia().getPrecioMes();
-        precioCursoBallet = getCursoBallet().getPrecioMes();
-        promedioPrecio = (precioCursoSalsa + precioCursoCumbia + precioCursoBallet) / 3;
-        System.out.println("El promedio del precio de los cursos es: " + promedioPrecio);
+    public void mostrarInformacionVestuario() {
+
+        String informacionVestuario1 = getVestuarioFormal().obtenerInformacion();
+        String informacionVestuario2 = getVestuarioEnsayo().obtenerInformacion();
+        String informacionVestuario3 = getVestuarioCompetencia().obtenerInformacion();
+        System.out.println("Informacion del vestuario 1: "+ informacionVestuario1);
+        System.out.println("Informacion del vestuario 2: "+ informacionVestuario2);
+        System.out.println("Informacion del vestuario 3: "+ informacionVestuario3);
+    }
+
+    public double obtenerPromedioPrecio() {
+        double promedioPrecio = curso.calcularPromedioPrecio(getCursoSalsa().getPrecioMes(),
+                getCursoCumbia().getPrecioMes(), getCursoBallet().getPrecioMes());
         return promedioPrecio;
+    }
+
+    public void mostrarPromedioPrecio(double promedioPrecio){
+        System.out.println("El promedio del precio de los cursos es: " + promedioPrecio);
     }
 }
