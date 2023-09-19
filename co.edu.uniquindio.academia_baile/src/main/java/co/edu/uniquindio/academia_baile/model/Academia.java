@@ -109,12 +109,12 @@ public class Academia {
     }
 
     public double obtenerPromedioPrecio() {
-        double promedioPrecio = curso.calcularPromedioPrecio(getCursoSalsa().getPrecioMes(),
-                getCursoCumbia().getPrecioMes(), getCursoBallet().getPrecioMes());
+        double promedioPrecio = cursoSalsa.calcularPromedioPrecio(cursoSalsa,
+                cursoCumbia, cursoBallet);
         return promedioPrecio;
     }
 
     public void mostrarPromedioPrecio(double promedioPrecio){
-        System.out.println("El promedio del precio de los cursos es: " + promedioPrecio);
+        System.out.println("El promedio del precio de los cursos es de: $ " + promedioPrecio);
     }
 }

@@ -10,10 +10,11 @@ public class Curso {
     private Categoria categoria;
     private Nivel nivel;
     private String profesor;
-    private String horario;
+    private int horario;
     private double precioMes;
 
-    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, String horario, double precioMes) {
+    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, int horario,
+                 double precioMes) {
         this.tipoBaile = tipoBaile;
         this.categoria = categoria;
         this.nivel = nivel;
@@ -54,11 +55,11 @@ public class Curso {
         this.profesor = profesor;
     }
 
-    public String getHorario() {
+    public int getHorario() {
         return horario;
     }
 
-    public void setHorario(String horario) {
+    public void setHorario(int horario) {
         this.horario = horario;
     }
 
@@ -87,23 +88,31 @@ public class Curso {
         promedioPrecio = (cursoSalsa.getPrecioMes() + cursoCumbia.getPrecioMes() + cursoBallet.getPrecioMes()) / 3;
         return promedioPrecio;
     }
+
+    public static void obtenerCursoNivelAlto(Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet){
+        if(Nivel.ALTO == cursoSalsa.getNivel()){
+            System.out.println("El curso Salsa es de nivel Alto");
+        }
+        if(Nivel.ALTO == cursoCumbia.getNivel()){
+            System.out.println("El curso Cumbia es de nivel Alto");
+        }
+        if(Nivel.ALTO == cursoBallet.getNivel()){
+            System.out.println("El curso Ballet es de nivel Alto");
+        }
+    }
+
+    public static void obtenerCursoMenorDuracion(Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet){
+        int cursoMenorDuracion = cursoSalsa.getHorario();
+        TipoBaile nombreCursoMenorDuracion = cursoSalsa.getTipoBaile();
+        if(cursoCumbia.getHorario() < cursoMenorDuracion){
+            cursoMenorDuracion = cursoCumbia.getHorario();
+            nombreCursoMenorDuracion = cursoCumbia.getTipoBaile();
+        if (cursoBallet.getHorario() < cursoMenorDuracion){
+            cursoMenorDuracion = cursoBallet.getHorario();
+            nombreCursoMenorDuracion = cursoBallet.getTipoBaile();
+            }
+        System.out.println("El curso que tiene menor horario es " + nombreCursoMenorDuracion + ", " +
+                "con una duración de " + cursoMenorDuracion + " horas");
+        }
+    }
 }
-
-
-
-
-
-
-
-    //public static double calcularPromedioPrecio(){
-        //double precioCursoSalsa = 0.0;
-        //double precioCursoCumbia = 0.0;
-        //double precioCursoBallet = 0.0;
-        //double promedioPrecio = 0.0;
-        //precioCursoSalsa = getCursoSalsa().getPrecioMes();
-        //precioCursoCumbia = getCursoCumbia().getPrecioMes();
-        //precioCursoBallet = getCursoBallet().getPrecioMes();
-        //promedioPrecio = (precioCursoSalsa + precioCursoCumbia + precioCursoBallet) / 3;
-        //System.out.println("El promedio del precio de los cursos es: " + promedioPrecio);
-        //return promedioPrecio;
-    //}
