@@ -1,28 +1,18 @@
 package co.edu.uniquindio.academia_baile.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Academia {
 
     private String nombre;
     private String ubicacion;
-    private Curso cursoSalsa;
-    private Curso cursoCumbia;
-    private Curso cursoBallet;
+
+    List<Curso> listaCursos = new ArrayList<>();
     private Vestuario vestuarioFormal;
     private Vestuario vestuarioEnsayo;
     private Vestuario vestuarioCompetencia;
 
-    public Academia(String nombre, String ubicacion, Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet,
-                    Vestuario vestuarioFormal, Vestuario vestuarioEnsayo,
-                    Vestuario vestuarioCompetencia) {
-        this.nombre = nombre;
-        this.ubicacion = ubicacion;
-        this.cursoSalsa = cursoSalsa;
-        this.cursoCumbia = cursoCumbia;
-        this.cursoBallet = cursoBallet;
-        this.vestuarioFormal = vestuarioFormal;
-        this.vestuarioEnsayo = vestuarioEnsayo;
-        this.vestuarioCompetencia = vestuarioCompetencia;
-    }
 
     public String getNombre() {
         return nombre;
@@ -40,29 +30,6 @@ public class Academia {
         this.ubicacion = ubicacion;
     }
 
-    public Curso getCursoSalsa() {
-        return cursoSalsa;
-    }
-
-    public void setCursoSalsa(Curso cursoSalsa) {
-        this.cursoSalsa = cursoSalsa;
-    }
-
-    public Curso getCursoCumbia() {
-        return cursoCumbia;
-    }
-
-    public void setCursoCumbia(Curso cursoCumbia) {
-        this.cursoCumbia = cursoCumbia;
-    }
-
-    public Curso getCursoBallet() {
-        return cursoBallet;
-    }
-
-    public void setCursoBallet(Curso cursoBallet) {
-        this.cursoBallet = cursoBallet;
-    }
 
     public Vestuario getVestuarioFormal() {
         return vestuarioFormal;
@@ -90,12 +57,12 @@ public class Academia {
 
     public void mostrarInformacionCurso() {
 
-        String informacionCurso1 = getCursoSalsa().obtenerInformacion();
-        String informacionCurso2 = getCursoCumbia().obtenerInformacion();
-        String informacionCurso3 = getCursoBallet().obtenerInformacion();
-        System.out.println("Informacion del curso 1: "+ informacionCurso1);
-        System.out.println("Informacion del curso 2: "+ informacionCurso2);
-        System.out.println("Informacion del curso 3: "+ informacionCurso3);
+        //String informacionCurso1 = getCursoSalsa().obtenerInformacion();
+        //String informacionCurso2 = getCursoCumbia().obtenerInformacion();
+        //String informacionCurso3 = getCursoBallet().obtenerInformacion();
+        //System.out.println("Informacion del curso 1: "+ informacionCurso1);
+        //System.out.println("Informacion del curso 2: "+ informacionCurso2);
+        //System.out.println("Informacion del curso 3: "+ informacionCurso3);
     }
 
     public void mostrarInformacionVestuario() {
@@ -109,9 +76,10 @@ public class Academia {
     }
 
     public double obtenerPromedioPrecio() {
-        double promedioPrecio = cursoSalsa.calcularPromedioPrecio(cursoSalsa,
-                cursoCumbia, cursoBallet);
-        return promedioPrecio;
+        //double promedioPrecio = cursoSalsa.calcularPromedioPrecio(cursoSalsa,
+        //       cursoCumbia, cursoBallet);
+        //return promedioPrecio;
+        return  0.0;
     }
 
     public void mostrarPromedioPrecio(double promedioPrecio){
