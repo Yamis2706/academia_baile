@@ -107,8 +107,8 @@ public class Curso {
     public String obtenerInformacion() {
         String informacion = "";
         informacion = informacion + "\n" +
-                "Tipo Baile: " + getTipoBaile() + "\n" +
-                "Categoria: " + getCategoria() + "\n" +
+                "Tipo de Baile: " + getTipoBaile() + "\n" +
+                "Categoría: " + getCategoria() + "\n" +
                 "Nivel: " + getNivel() + "\n" +
                 "Profesor: " + getProfesor() + "\n" +
                 "Horario: " + getHorario() + "\n" +

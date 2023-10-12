@@ -9,10 +9,13 @@ public class Main {
 
     public static void main(String[] args) {
         Academia academiaBaile = inializarDatosPrueba();
-        //Create
-        crearCliente("juan", "arias", 24, "1094","juan@1001",  academiaBaile);
-        crearCliente("ana", "alzate",35, "1095", " ana@1002", academiaBaile);
-        crearCliente("maria", "perez",22, "1096", "maria@1003", academiaBaile);
+        //Create (Crear)
+        crearCliente("Juan Felipe", "Arias Sánchez", 24, "1094536998",
+                "juanf.ariass@bailaportussuenos.co", academiaBaile);
+        crearCliente("Ana María", "Alzate Mora", 35, "1067429755",
+                " anam.alzatem@bailaportussuenos.co", academiaBaile);
+        crearCliente("Camila", "Perez Gonzales", 22, "1055234787",
+                "camila.perezg@bailaportussuenos.co", academiaBaile);
 
         opcionesMenuPrincipal(academiaBaile);
     }
@@ -23,13 +26,13 @@ public class Main {
      */
     private static Academia inializarDatosPrueba() {
         Academia academiaBaile = new Academia();
-        academiaBaile.setNombre("Baila por tus sueños");
-        academiaBaile.setUbicacion("Av 13 N Armenia, Quindio");
+        academiaBaile.setNombre("Baila por tus Sueños");
+        academiaBaile.setUbicacion("Avenida 13 Norte de la ciudad de Armenia, Quindío");
         return academiaBaile;
     }
 
     /**
-     *Metodo para crear un cliente
+     * Método para crear cliente
      * @param nombre
      * @param apellido
      * @param edad
@@ -37,11 +40,7 @@ public class Main {
      * @param correo
      * @param academiaBaile
      */
-    private static void crearCliente(String nombre,
-                                     String apellido,
-                                     int edad,
-                                     String cedula,
-                                     String correo,
+    private static void crearCliente(String nombre, String apellido, int edad, String cedula, String correo,
                                      Academia academiaBaile) {
         academiaBaile.crearCliente(nombre, apellido, edad, cedula, correo);
     }

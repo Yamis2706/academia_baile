@@ -51,6 +51,7 @@ public class Pago {
     public void setOwnedByAcademia(Academia ownedByAcademia) {
         this.ownedByAcademia = ownedByAcademia;
     }
+<<<<<<< HEAD
 
     @Override
     public String toString() {
@@ -60,3 +61,6 @@ public class Pago {
                 '}';
     }
 }
+=======
+}
+>>>>>>> 33bc1c140d071df5428018b4f75518760d2da131

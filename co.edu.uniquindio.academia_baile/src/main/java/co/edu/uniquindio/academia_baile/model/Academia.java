@@ -13,15 +13,14 @@ import static co.edu.uniquindio.academia_baile.util.CapturaDatosUtil.imprimir;
  * Atributos clase Academia
  */
 public class Academia {
-
     private String nombre;
     private String ubicacion;
 
     List<Curso> listaCursos = new ArrayList<>();
-    List<Cliente> listaCliente = new ArrayList<>();
-    List<Empleado> listaEmpleado = new ArrayList<>();
-    List<Inscripcion> listaInscripcion = new ArrayList<>();
-    List<Pago> listaPago = new ArrayList<>();
+    List<Cliente> listaClientes = new ArrayList<>();
+    List<Empleado> listaEmpleados = new ArrayList<>();
+    List<Inscripcion> listaInscripciones = new ArrayList<>();
+    List<Pago> listaPagos = new ArrayList<>();
 
     /**
      * Constructor vacio
@@ -51,36 +50,36 @@ public class Academia {
         this.listaCursos = listaCursos;
     }
 
-    public List<Cliente> getListaCliente() {
-        return listaCliente;
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
     }
 
-    public void setListaCliente(List<Cliente> listaCliente) {
-        this.listaCliente = listaCliente;
+    public void setListaClientes(List<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
     }
 
-    public List<Empleado> getListaEmpleado() {
-        return listaEmpleado;
+    public List<Empleado> getListaEmpleados() {
+        return listaEmpleados;
     }
 
-    public void setListaEmpleado(List<Empleado> listaEmpleado) {
-        this.listaEmpleado = listaEmpleado;
+    public void setListaEmpleados(List<Empleado> listaEmpleados) {
+        this.listaEmpleados = listaEmpleados;
     }
 
-    public List<Inscripcion> getListaInscripcion() {
-        return listaInscripcion;
+    public List<Inscripcion> getListaInscripciones() {
+        return listaInscripciones;
     }
 
-    public void setListaInscripcion(List<Inscripcion> listaInscripcion) {
-        this.listaInscripcion = listaInscripcion;
+    public void setListaInscripciones(List<Inscripcion> listaInscripciones) {
+        this.listaInscripciones = listaInscripciones;
     }
 
-    public List<Pago> getListaPago() {
-        return listaPago;
+    public List<Pago> getListaPagos() {
+        return listaPagos;
     }
 
-    public void setListaPago(List<Pago> listaPago) {
-        this.listaPago = listaPago;
+    public void setListaPagos(List<Pago> listaPagos) {
+        this.listaPagos = listaPagos;
     }
 
     public String getNombre() {
@@ -99,6 +98,16 @@ public class Academia {
         this.ubicacion = ubicacion;
     }
 
+
+    public void mostrarPromedioPrecio(double promedioPrecio){
+        System.out.println("El promedio del precio de los cursos es de: $ " + promedioPrecio);
+    }
+
+    public boolean crearCurso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, int horario,
+                              double precioMes) {
+        return false;
+    }
+
     /**
      *Metodo para crear un cliente
      * @param nombre
@@ -113,14 +122,14 @@ public class Academia {
 
         //boolean validarCedula = validarCedula(cedula, cliente);
         boolean cedulaExistente = false;
-        for (Cliente cliente2 : listaCliente) {
+        for (Cliente cliente2 : listaClientes) {
             if (cliente2.getCedula().equals(cedula)) {
                 cedulaExistente = true;
                 break;
             }
         }
         if (cedulaExistente) {
-            imprimir("El número de cédula ya existe, ingresa de nuevo los datos");
+            imprimir("El número de cédula ya existe, digite de nuevo el dato correcto");
 
         } else {
             cliente.setNombre(nombre);
@@ -128,16 +137,17 @@ public class Academia {
             cliente.setEdad(edad);
             cliente.setCedula(cedula);
             cliente.setCorreo(correo);
-            getListaCliente().add(cliente);
+            getListaClientes().add(cliente);
         }
         return true;
     }
+
     /**
      * Metodo para obtener la lista de todos los clientes
      * @return List<Cliente>
      */
     public List<Cliente> obtenerClientes() {
-        return getListaCliente();
+        return getListaClientes();
     }
 
     /**
@@ -150,8 +160,8 @@ public class Academia {
      * @param cedula
      * @param correo
      */
-    public  void actualizarCliente(String cedulaActualizar , List<Cliente> lista, String nombre, String apellido,int edad, String cedula,String correo ){
-
+    public  void actualizarCliente(String cedulaActualizar , List<Cliente> lista, String nombre, String apellido,
+                                   int edad, String cedula,String correo ){
         int indice = obtenerPosicionPorCedula(lista,cedulaActualizar);
         boolean cedulaExistente = false;
         for (Cliente cliente: lista){
@@ -161,18 +171,20 @@ public class Academia {
             }
         }
         if(cedulaExistente){
-            imprimir("El número de cédula ya existe, ingresa de nuevo los datos");
+            imprimir("El número de cédula ya existe, digite de nuevo el dato correcto");
 
         }else{
-            listaCliente.get(indice).setNombre(nombre);
-            listaCliente.get(indice).setApellido(apellido);
-            listaCliente.get(indice).setEdad(edad);
-            listaCliente.get(indice).setCedula(cedula);
-            listaCliente.get(indice).setCorreo(correo);
+
+            listaClientes.get(indice).setNombre(nombre);
+            listaClientes.get(indice).setApellido(apellido);
+            listaClientes.get(indice).setEdad(edad);
+            listaClientes.get(indice).setCedula(cedula);
+            listaClientes.get(indice).setCorreo(correo);
         }
     }
+
     /**
-     * Método para Obtener la posicion por Cédula
+     * Método para Obtener la posicion por cédula
      * @param lista
      * @param cedula
      * @return
@@ -185,19 +197,19 @@ public class Academia {
         }
         return -1;  // No se encontró el nombre en la lista
     }
+
     /**
-     * Método para Eliminar un Cliente
+     * Método para Eliminar un cliente
      * @param cedula
      */
     public void eliminarCliente(String cedula) {
-        int tamanioLista = getListaCliente().size();
+        int tamanioLista = getListaClientes().size();
         for (int i=0; i < tamanioLista; i++){
-            Cliente cliente = getListaCliente().get(i);
+            Cliente cliente = getListaClientes().get(i);
             if(cliente.getCedula().equalsIgnoreCase(cedula)){
-                getListaCliente().remove(i);
+                getListaClientes().remove(i);
                 break;
             }
         }
     }
-
 }

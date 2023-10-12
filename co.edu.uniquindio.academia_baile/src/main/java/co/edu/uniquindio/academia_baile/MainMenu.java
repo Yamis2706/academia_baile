@@ -9,17 +9,19 @@ import java.util.Scanner;
 import static co.edu.uniquindio.academia_baile.util.CapturaDatosUtil.*;
 
 public class MainMenu {
+
     /**
      * Método utilizado para mostrar las opciones del menú principal
      * @return
      */
     public static String mostrarMenuPrincipal() {
-        return  "Bienvenido a la academia baila por tus sueños, elije alguna de las opciones que tenermos para ti" + "\n" +
+        return  "Bienvenido a la Academia Baila por tus Sueños, elige alguna de las opciones que tenemos para usted:"
+                + "\n" +
                 "1 - Clientes" +"\n" +
-                "2 - empleados" +"\n" +
-                "3 - cursos" +"\n" +
-                "4 - inscripciones" +"\n" +
-                "5 - pagos" +"\n" +
+                "2 - Empleados" +"\n" +
+                "3 - Cursos" +"\n" +
+                "4 - Inscripciones" +"\n" +
+                "5 - Pagos" +"\n" +
                 "6 - Salir";
     }
 
@@ -28,10 +30,10 @@ public class MainMenu {
      * @return
      */
     public static String mostrarMenuClientes() {
-        return "haz elegido la opción 1. Clientes, indica que quieres realizar" + "\n" +
+        return "Ha elegido la opción 1. Clientes, indique que quiere realizar:" + "\n" +
                 "1 - Crear Cliente" +"\n" +
                 "2 - Obtener Clientes" +"\n" +
-                "3 - Actualizar información de Cliente" +"\n" +
+                "3 - Actualizar Información del Cliente" +"\n" +
                 "4 - Eliminar Cliente" +"\n" +
                 "5 - Salir";
     }
@@ -41,24 +43,19 @@ public class MainMenu {
      * @param academia
      */
     public static void opcionesMenuPrincipal(Academia academia) {
-
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion; //Guardaremos la opcion del usuario
-
         while (!salir) {
+
             //mostrarMenu();
-
             opcion = leerEnteroVentana(mostrarMenuPrincipal());
-
             try {
-
-                System.out.println("Escribe una de las opciones");
+                System.out.println("Ingrese una de las opciones");
                 //opcion = sn.nextInt();
-
                 switch (opcion) {
                     case 1:
-                        System.out.println("Has seleccionado la opcion 1 - clientes");
+                        System.out.println("Ha seleccionado la opcion 1 - Clientes");
                         menuClientes(academia);
                         break;
                     case 2:
@@ -74,10 +71,10 @@ public class MainMenu {
                         salir = true;
                         break;
                     default:
-                        System.out.println("Solo números entre 1 y 5");
+                        System.out.println("Solo se permiten los números entre 1 y 5");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
+                System.out.println("Debe digitar un número");
                 sn.next();
             }
         }
@@ -88,7 +85,6 @@ public class MainMenu {
      * @param academia
      */
     public static void menuClientes(Academia academia) {
-
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion; //Guardaremos la opcion del usuario
@@ -97,24 +93,23 @@ public class MainMenu {
 
             opcion = leerEnteroVentana(mostrarMenuClientes());
             try {
-
-                System.out.println("Escribe una de las opciones");
+                System.out.println("Ingrese una de las siguientes opciones");
                 //opcion = sn.nextInt();
 
                 switch (opcion) {
                     case 1:
-                        imprimir("Has seleccionado la opcion 1 - Crear cliente"+ "\n" +
-                                "Por favor diligencia los siguientes datos"
+                        imprimir("Ha seleccionado la opcion 1 - Crear Cliente"+ "\n" +
+                                "Por favor diligenciar los siguientes datos:"
                         );
-                        System.out.println("Has seleccionado la opcion 1 - Crear cliente");
+                        System.out.println("Ha seleccionado la opcion 1 - Crear Cliente");
 
-                        String respuestaNombre = leerStringVentana("Ingresa tu nombre");
-                        String respuestaApellido = leerStringVentana("Ingresa tu apellido");
-                        int respuestaEdad =  leerEnteroVentana ("ingresa tu edad");
-                        String respuestaCedula = leerStringVentana("Ingresa tu cedula");
-                        String respuestaCorreo = leerStringVentana("Ingresa tu correo");
-
-                        academia.crearCliente(respuestaNombre, respuestaApellido,respuestaEdad, respuestaCedula,respuestaCorreo);
+                        String respuestaNombre = leerStringVentana("Ingrese su Nombre");
+                        String respuestaApellido = leerStringVentana("Ingrese su Apellido");
+                        int respuestaEdad =  leerEnteroVentana ("Ingrese su Edad");
+                        String respuestaCedula = leerStringVentana("Ingrese su Cédula");
+                        String respuestaCorreo = leerStringVentana("Ingrese su Correo");
+                        academia.crearCliente(respuestaNombre, respuestaApellido,respuestaEdad, respuestaCedula,
+                                respuestaCorreo);
                         break;
                     case 2:
                         String mensaje = "";
@@ -123,7 +118,7 @@ public class MainMenu {
                             mensaje += idCliente +". "+ academia.obtenerClientes().get(i) + "\n";
                         }
                         JOptionPane.showMessageDialog(null, mensaje);
-                        System.out.println("Has seleccionado la opcion 2");
+                        System.out.println("Ha seleccionado la opción 2");
                         break;
                     case 3:
                         String mensaje2 = "";
@@ -131,25 +126,25 @@ public class MainMenu {
                             String idCliente = Integer.toString(i+1);
                             mensaje2 += idCliente +". "+ academia.obtenerClientes().get(i) + "\n";
                         }
-                        System.out.println("Has seleccionado la opcion 3");
+                        System.out.println("Ha seleccionado la opciÓn 3");
 
                         //Actualizar
-
-                        String cedulaActualizar = leerStringVentana("Elige el numero de cédula del cliente que desea actualizar" + "\n"
+                        String cedulaActualizar = leerStringVentana("Digite el número de cédula del cliente " +
+                                "que desea actualizar" + "\n"
                                 +"\n"+ mensaje2
-
                         );
 
-                        String actualizarNombre = leerStringVentana("escriba el nuevo nombre");
-                        String actualizarApellido = leerStringVentana("escriba el nuevo apellido");
+                        String actualizarNombre = leerStringVentana("Digite el nuevo Nombre");
 
-                        int actualizarEdad = leerEnteroVentana("Elige la nueva edad");
-                        String actualizarCedula = leerStringVentana("escriba la nueva cedula");
-                        String actualizarCorreo = leerStringVentana("escriba el nuevo correo");
+                        String actualizarApellido = leerStringVentana("Digite el nuevo Apellido");
 
+                        int actualizarEdad = leerEnteroVentana("Digite la nueva Edad");
+                        String actualizarCedula = leerStringVentana("Digite la nueva Cédula");
+                        String actualizarCorreo = leerStringVentana("Digite el nuevo Correo");
 
                         academia.actualizarCliente
-                                (cedulaActualizar, academia.obtenerClientes(),actualizarNombre,actualizarApellido,actualizarEdad,actualizarCedula,actualizarCorreo);
+                                (cedulaActualizar, academia.obtenerClientes(),actualizarNombre,actualizarApellido,
+                                        actualizarEdad,actualizarCedula,actualizarCorreo);
                         break;
                     case 4:
                         String mensaje3 = "";
@@ -157,21 +152,21 @@ public class MainMenu {
                             String idCliente = Integer.toString(i+1);
                             mensaje3 += idCliente +". "+ academia.obtenerClientes().get(i) + "\n";
                         }
-                        System.out.println("Has seleccionado la opcion 4");
-                        String numeroCedulaClienteEliminar = leerStringVentana("Para eliminar el cliente, por favor indica el numero de cedula" + "\n" + mensaje3);
+                        System.out.println("Ha seleccionado la opción 4");
+                        String numeroCedulaClienteEliminar = leerStringVentana("Para eliminar el cliente, " +
+                                "por favor digitar el número de cédula" + "\n" + mensaje3);
                         academia.eliminarCliente(numeroCedulaClienteEliminar);
                         break;
                     case 5:
                         salir = true;
                         break;
                     default:
-                        System.out.println("Solo números entre 1 y 5");
+                        System.out.println("Solo se permiten los números entre 1 y 5");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
+                System.out.println("Debe digitar un número");
                 sn.next();
             }
         }
     }
-
 }
