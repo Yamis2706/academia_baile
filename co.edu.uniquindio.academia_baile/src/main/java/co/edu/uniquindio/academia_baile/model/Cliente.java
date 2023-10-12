@@ -8,7 +8,6 @@ public class Cliente {
     private String correo;
     Academia ownedByAcademia;
 
-
     public Cliente() {
     }
 
@@ -71,11 +70,11 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                ", cedula='" + cedula + '\'' +
-                ", correo='" + correo + '\'' +
+                "Nombre='" + nombre + '\'' +
+                ", Apellido='" + apellido + '\'' +
+                ", Edad=" + edad +
+                ", Cédula='" + cedula + '\'' +
+                ", Correo='" + correo + '\'' +
                 '}';
     }
 }

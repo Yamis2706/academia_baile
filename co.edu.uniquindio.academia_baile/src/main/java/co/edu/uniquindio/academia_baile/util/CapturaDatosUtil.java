@@ -8,8 +8,7 @@ public class CapturaDatosUtil {
      * Este método sirve para imprimir un mensaje con la libreria JOptionPane
      * @param mensaje
      */
-    public static void imprimir (String mensaje)
-    {
+    public static void imprimir (String mensaje) {
         JOptionPane.showMessageDialog(null,mensaje);
     }
 
@@ -18,10 +17,8 @@ public class CapturaDatosUtil {
      * @param mensaje
      * @return
      */
-    public static int leerEnteroVentana (String mensaje)
-    {
+    public static int leerEnteroVentana (String mensaje) {
         int dato= Integer.parseInt(JOptionPane.showInputDialog(mensaje));
-
         return dato;
     }
 

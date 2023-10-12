@@ -36,5 +36,4 @@ public class Pago {
     public void setOwnedByAcademia(Academia ownedByAcademia) {
         this.ownedByAcademia = ownedByAcademia;
     }
-
 }

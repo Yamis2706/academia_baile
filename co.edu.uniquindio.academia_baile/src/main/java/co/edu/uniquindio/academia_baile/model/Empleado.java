@@ -70,11 +70,11 @@ public class Empleado {
     @Override
     public String toString() {
         return "Empleado{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                ", cedula='" + cedula + '\'' +
-                ", correo='" + correo + '\'' +
+                "Nombre='" + nombre + '\'' +
+                ", Apellido='" + apellido + '\'' +
+                ", Edad=" + edad +
+                ", Cédula='" + cedula + '\'' +
+                ", Correo='" + correo + '\'' +
                 '}';
     }
 }

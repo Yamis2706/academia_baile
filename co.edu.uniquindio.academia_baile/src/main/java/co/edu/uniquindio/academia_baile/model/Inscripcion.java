@@ -39,9 +39,9 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        return "Inscripcion{" +
-                "cliente=" + cliente +
-                ", curso=" + curso +
+        return "Inscripción{" +
+                "Cliente=" + cliente +
+                ", Curso=" + curso +
                 '}';
     }
 }
