@@ -1,5 +1,8 @@
 package co.edu.uniquindio.academia_baile.model;
 
+/**
+ *Atributos de la clase Cliente
+ */
 public class Cliente {
     private String nombre;
     private String apellido;
@@ -8,10 +11,20 @@ public class Cliente {
     private String correo;
     Academia ownedByAcademia;
 
-
+    /**
+     * Constructor vacio
+     */
     public Cliente() {
     }
 
+    /**
+     * Constructor con parámetros
+     * @param nombre
+     * @param apellido
+     * @param edad
+     * @param cedula
+     * @param correo
+     */
     public Cliente(String nombre, String apellido, int edad, String cedula, String correo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -20,6 +33,10 @@ public class Cliente {
         this.correo = correo;
     }
 
+    /**
+     * getters y setters
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }

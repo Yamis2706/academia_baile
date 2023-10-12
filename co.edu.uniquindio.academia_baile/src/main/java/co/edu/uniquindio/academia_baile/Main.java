@@ -5,7 +5,6 @@ import co.edu.uniquindio.academia_baile.model.enumeracion.*;
 
 import static co.edu.uniquindio.academia_baile.MainMenu.opcionesMenuPrincipal;
 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -17,18 +16,25 @@ public class Main {
 
         opcionesMenuPrincipal(academiaBaile);
     }
+
+    /**
+     *Método para Inicializar Datos Prueba
+     * @return
+     */
     private static Academia inializarDatosPrueba() {
         Academia academiaBaile = new Academia();
         academiaBaile.setNombre("Baila por tus sueños");
         academiaBaile.setUbicacion("Av 13 N Armenia, Quindio");
         return academiaBaile;
     }
+
     /**
-     * Método para Crear un Cliente
+     *Metodo para crear un cliente
      * @param nombre
      * @param apellido
-     * @param cedula
      * @param edad
+     * @param cedula
+     * @param correo
      * @param academiaBaile
      */
     private static void crearCliente(String nombre,

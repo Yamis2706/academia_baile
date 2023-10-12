@@ -1,18 +1,33 @@
 package co.edu.uniquindio.academia_baile.model;
 
+/**
+ * Atributos de la clase pago
+ */
 public class Pago {
     private Inscripcion inscripcion;
     private double valorPagar;
     Academia ownedByAcademia;
 
+    /**
+     * Constructor vacio
+     */
     public Pago() {
     }
 
+    /**
+     * Constructor con parámetros
+     * @param inscripcion
+     * @param valorApagar
+     */
     public Pago(Inscripcion inscripcion, double valorApagar) {
         this.inscripcion = inscripcion;
         this.valorPagar = valorApagar;
     }
 
+    /**
+     * getters y setters
+     * @return
+     */
     public Inscripcion getInscripcion() {
         return inscripcion;
     }
@@ -37,4 +52,11 @@ public class Pago {
         this.ownedByAcademia = ownedByAcademia;
     }
 
+    @Override
+    public String toString() {
+        return "Pago{" +
+                "inscripcion=" + inscripcion +
+                ", valorPagar=" + valorPagar +
+                '}';
+    }
 }

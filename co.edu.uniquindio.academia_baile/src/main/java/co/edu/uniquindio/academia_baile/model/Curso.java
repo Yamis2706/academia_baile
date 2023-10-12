@@ -4,6 +4,9 @@ import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
 import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
 import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
 
+/**
+ * Atributos de la clase Curso
+ */
 public class Curso {
 
     private TipoBaile tipoBaile;
@@ -12,7 +15,24 @@ public class Curso {
     private String profesor;
     private int horario;
     private double precioMes;
+    Academia ownedByAcademia;
 
+
+    /**
+     * Constructor vacio
+     */
+    public Curso() {
+    }
+
+    /**
+     * Constructor con parámetros
+     * @param tipoBaile
+     * @param categoria
+     * @param nivel
+     * @param profesor
+     * @param horario
+     * @param precioMes
+     */
     public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, int horario,
                  double precioMes) {
         this.tipoBaile = tipoBaile;
@@ -23,6 +43,10 @@ public class Curso {
         this.precioMes = precioMes;
     }
 
+    /**
+     * getters y setters
+     * @return
+     */
     public TipoBaile getTipoBaile() {
         return tipoBaile;
     }
@@ -70,6 +94,15 @@ public class Curso {
     public void setPrecioMes(double precioMes) {
         this.precioMes = precioMes;
     }
+
+    public Academia getOwnedByAcademia() {
+        return ownedByAcademia;
+    }
+
+    public void setOwnedByAcademia(Academia ownedByAcademia) {
+        this.ownedByAcademia = ownedByAcademia;
+    }
+
 
     public String obtenerInformacion() {
         String informacion = "";

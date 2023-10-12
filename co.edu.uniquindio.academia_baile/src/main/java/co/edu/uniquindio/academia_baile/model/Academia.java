@@ -9,6 +9,9 @@ import java.util.List;
 
 import static co.edu.uniquindio.academia_baile.util.CapturaDatosUtil.imprimir;
 
+/**
+ * Atributos clase Academia
+ */
 public class Academia {
 
     private String nombre;
@@ -20,9 +23,26 @@ public class Academia {
     List<Inscripcion> listaInscripcion = new ArrayList<>();
     List<Pago> listaPago = new ArrayList<>();
 
+    /**
+     * Constructor vacio
+     */
     public Academia() {
     }
 
+    /**
+     * Constructor con parámetros
+     * @param nombre
+     * @param ubicacion
+     */
+    public Academia(String nombre, String ubicacion) {
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+    }
+
+    /**
+     * getters y setters
+     * @return
+     */
     public List<Curso> getListaCursos() {
         return listaCursos;
     }
@@ -79,45 +99,14 @@ public class Academia {
         this.ubicacion = ubicacion;
     }
 
-
-
-
-    public void mostrarInformacionCurso() {
-
-        //String informacionCurso1 = getCursoSalsa().obtenerInformacion();
-        //String informacionCurso2 = getCursoCumbia().obtenerInformacion();
-        //String informacionCurso3 = getCursoBallet().obtenerInformacion();
-        //System.out.println("Informacion del curso 1: "+ informacionCurso1);
-        //System.out.println("Informacion del curso 2: "+ informacionCurso2);
-        //System.out.println("Informacion del curso 3: "+ informacionCurso3);
-    }
-
-
-
-    public double obtenerPromedioPrecio() {
-        //double promedioPrecio = cursoSalsa.calcularPromedioPrecio(cursoSalsa,
-        //       cursoCumbia, cursoBallet);
-        //return promedioPrecio;
-        return  0.0;
-    }
-
-    public void mostrarPromedioPrecio(double promedioPrecio){
-        System.out.println("El promedio del precio de los cursos es de: $ " + promedioPrecio);
-    }
-
-
-    public boolean crearCurso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, int horario,
-                              double precioMes) {
-        return false;
-    }
-
     /**
-     * Método para Crear un cliente
+     *Metodo para crear un cliente
      * @param nombre
      * @param apellido
-     * @param cedula
      * @param edad
-     * @return boolean
+     * @param cedula
+     * @param correo
+     * @return
      */
     public boolean crearCliente(String nombre, String apellido, int edad, String cedula, String correo) {
         Cliente cliente = new Cliente();
@@ -136,8 +125,8 @@ public class Academia {
         } else {
             cliente.setNombre(nombre);
             cliente.setApellido(apellido);
-            cliente.setCedula(cedula);
             cliente.setEdad(edad);
+            cliente.setCedula(cedula);
             cliente.setCorreo(correo);
             getListaCliente().add(cliente);
         }
@@ -152,13 +141,14 @@ public class Academia {
     }
 
     /**
-     * Método para Actualizar un Cliente
+     *Metodo para actulizar un cliente
      * @param cedulaActualizar
      * @param lista
      * @param nombre
      * @param apellido
-     * @param cedula
      * @param edad
+     * @param cedula
+     * @param correo
      */
     public  void actualizarCliente(String cedulaActualizar , List<Cliente> lista, String nombre, String apellido,int edad, String cedula,String correo ){
 
@@ -176,8 +166,9 @@ public class Academia {
         }else{
             listaCliente.get(indice).setNombre(nombre);
             listaCliente.get(indice).setApellido(apellido);
-            listaCliente.get(indice).setCedula(cedula);
             listaCliente.get(indice).setEdad(edad);
+            listaCliente.get(indice).setCedula(cedula);
+            listaCliente.get(indice).setCorreo(correo);
         }
     }
     /**

@@ -36,6 +36,10 @@ public class MainMenu {
                 "5 - Salir";
     }
 
+    /**
+     *Método utilizado para elegir las diferentes opciones que tiene el usuario dentro del sistema
+     * @param academia
+     */
     public static void opcionesMenuPrincipal(Academia academia) {
 
         Scanner sn = new Scanner(System.in);
@@ -79,6 +83,10 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Método utilizado para elegir las diferentes opciones del CRUD de clientes
+     * @param academia
+     */
     public static void menuClientes(Academia academia) {
 
         Scanner sn = new Scanner(System.in);

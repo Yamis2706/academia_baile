@@ -1,5 +1,8 @@
 package co.edu.uniquindio.academia_baile.model;
 
+/**
+ * Atributos de la clase empleado
+ */
 public class Empleado {
     private String nombre;
     private String apellido;
@@ -8,9 +11,20 @@ public class Empleado {
     private String correo;
     Academia ownedByAcademia;
 
+    /**
+     * Constructor vacio
+     */
     public Empleado() {
     }
 
+    /**
+     * Constructor con parametros
+     * @param nombre
+     * @param apellido
+     * @param edad
+     * @param cedula
+     * @param correo
+     */
     public Empleado(String nombre, String apellido, int edad, String cedula, String correo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -19,6 +33,10 @@ public class Empleado {
         this.correo = correo;
     }
 
+    /**
+     * getters y setters
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
