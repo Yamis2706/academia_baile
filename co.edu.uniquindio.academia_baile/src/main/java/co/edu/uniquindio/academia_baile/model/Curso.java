@@ -82,37 +82,4 @@ public class Curso {
                 "Precio del Mes: $ " + getPrecioMes() + "\n";
         return informacion;
     }
-
-    public double calcularPromedioPrecio(Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet) {
-        double promedioPrecio = 0.0;
-        promedioPrecio = (cursoSalsa.getPrecioMes() + cursoCumbia.getPrecioMes() + cursoBallet.getPrecioMes()) / 3;
-        return promedioPrecio;
-    }
-
-    public static void obtenerCursoNivelAlto(Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet){
-        if(Nivel.ALTO == cursoSalsa.getNivel()){
-            System.out.println("El curso SALSA es de nivel ALTO");
-        }
-        if(Nivel.ALTO == cursoCumbia.getNivel()){
-            System.out.println("El curso CUMBIA es de nivel ALTO");
-        }
-        if(Nivel.ALTO == cursoBallet.getNivel()){
-            System.out.println("El curso BALLET es de nivel ALTO");
-        }
-    }
-
-    public static void obtenerCursoMenorDuracion(Curso cursoSalsa, Curso cursoCumbia, Curso cursoBallet){
-        int cursoMenorDuracion = cursoSalsa.getHorario();
-        TipoBaile nombreCursoMenorDuracion = cursoSalsa.getTipoBaile();
-        if(cursoCumbia.getHorario() < cursoMenorDuracion){
-            cursoMenorDuracion = cursoCumbia.getHorario();
-            nombreCursoMenorDuracion = cursoCumbia.getTipoBaile();
-        if (cursoBallet.getHorario() < cursoMenorDuracion){
-            cursoMenorDuracion = cursoBallet.getHorario();
-            nombreCursoMenorDuracion = cursoBallet.getTipoBaile();
-            }
-        System.out.println("El curso que tiene menor horario es " + nombreCursoMenorDuracion + ", " +
-                "con una duración de " + cursoMenorDuracion + " horas");
-        }
-    }
 }

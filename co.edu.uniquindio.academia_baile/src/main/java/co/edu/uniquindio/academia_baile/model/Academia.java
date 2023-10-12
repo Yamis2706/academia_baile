@@ -1,5 +1,9 @@
 package co.edu.uniquindio.academia_baile.model;
 
+import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
+import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
+import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +13,53 @@ public class Academia {
     private String ubicacion;
 
     List<Curso> listaCursos = new ArrayList<>();
-    private Vestuario vestuarioFormal;
-    private Vestuario vestuarioEnsayo;
-    private Vestuario vestuarioCompetencia;
+    List<Cliente> listaCliente = new ArrayList<>();
+    List<Empleado> listaEmpleado = new ArrayList<>();
+    List<Inscripcion> listaInscripcion = new ArrayList<>();
+    List<Pago> listaPago = new ArrayList<>();
 
+    public Academia() {
+    }
+
+    public List<Curso> getListaCursos() {
+        return listaCursos;
+    }
+
+    public void setListaCursos(List<Curso> listaCursos) {
+        this.listaCursos = listaCursos;
+    }
+
+    public List<Cliente> getListaCliente() {
+        return listaCliente;
+    }
+
+    public void setListaCliente(List<Cliente> listaCliente) {
+        this.listaCliente = listaCliente;
+    }
+
+    public List<Empleado> getListaEmpleado() {
+        return listaEmpleado;
+    }
+
+    public void setListaEmpleado(List<Empleado> listaEmpleado) {
+        this.listaEmpleado = listaEmpleado;
+    }
+
+    public List<Inscripcion> getListaInscripcion() {
+        return listaInscripcion;
+    }
+
+    public void setListaInscripcion(List<Inscripcion> listaInscripcion) {
+        this.listaInscripcion = listaInscripcion;
+    }
+
+    public List<Pago> getListaPago() {
+        return listaPago;
+    }
+
+    public void setListaPago(List<Pago> listaPago) {
+        this.listaPago = listaPago;
+    }
 
     public String getNombre() {
         return nombre;
@@ -31,29 +78,7 @@ public class Academia {
     }
 
 
-    public Vestuario getVestuarioFormal() {
-        return vestuarioFormal;
-    }
 
-    public void setVestuarioFormal(Vestuario vestuarioFormal) {
-        this.vestuarioFormal = vestuarioFormal;
-    }
-
-    public Vestuario getVestuarioEnsayo() {
-        return vestuarioEnsayo;
-    }
-
-    public void setVestuarioEnsayo(Vestuario vestuarioEnsayo) {
-        this.vestuarioEnsayo = vestuarioEnsayo;
-    }
-
-    public Vestuario getVestuarioCompetencia() {
-        return vestuarioCompetencia;
-    }
-
-    public void setVestuarioCompetencia(Vestuario vestuarioCompetencia) {
-        this.vestuarioCompetencia = vestuarioCompetencia;
-    }
 
     public void mostrarInformacionCurso() {
 
@@ -65,15 +90,7 @@ public class Academia {
         //System.out.println("Informacion del curso 3: "+ informacionCurso3);
     }
 
-    public void mostrarInformacionVestuario() {
 
-        String informacionVestuario1 = getVestuarioFormal().obtenerInformacion();
-        String informacionVestuario2 = getVestuarioEnsayo().obtenerInformacion();
-        String informacionVestuario3 = getVestuarioCompetencia().obtenerInformacion();
-        System.out.println("Informacion del vestuario 1: "+ informacionVestuario1);
-        System.out.println("Informacion del vestuario 2: "+ informacionVestuario2);
-        System.out.println("Informacion del vestuario 3: "+ informacionVestuario3);
-    }
 
     public double obtenerPromedioPrecio() {
         //double promedioPrecio = cursoSalsa.calcularPromedioPrecio(cursoSalsa,
@@ -84,5 +101,11 @@ public class Academia {
 
     public void mostrarPromedioPrecio(double promedioPrecio){
         System.out.println("El promedio del precio de los cursos es de: $ " + promedioPrecio);
+    }
+
+
+    public boolean crearCurso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, int horario,
+                              double precioMes) {
+        return false;
     }
 }
