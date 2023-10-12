@@ -33,7 +33,7 @@ public class MainMenu {
         return "Ha elegido la opción 1. Clientes, indique que quiere realizar:" + "\n" +
                 "1 - Crear Cliente" +"\n" +
                 "2 - Obtener Clientes" +"\n" +
-                "3 - Actualizar información del Cliente" +"\n" +
+                "3 - Actualizar Información del Cliente" +"\n" +
                 "4 - Eliminar Cliente" +"\n" +
                 "5 - Salir";
     }

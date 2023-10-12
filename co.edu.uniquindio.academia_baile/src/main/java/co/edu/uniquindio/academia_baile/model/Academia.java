@@ -124,7 +124,7 @@ public class Academia {
             }
         }
         if (cedulaExistente) {
-            imprimir("El número de cédula ya existe, ingrese de nuevo el dato correcto");
+            imprimir("El número de cédula ya existe, digite de nuevo el dato correcto");
 
         } else {
             cliente.setNombre(nombre);
@@ -165,7 +165,7 @@ public class Academia {
             }
         }
         if(cedulaExistente){
-            imprimir("El número de cédula ya existe, ingrese de nuevo el dato correcto");
+            imprimir("El número de cédula ya existe, digite de nuevo el dato correcto");
 
         }else{
             listaClientes.get(indice).setNombre(nombre);
