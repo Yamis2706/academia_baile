@@ -95,15 +95,63 @@ public class MainMenu {
 
                 switch (opcion) {
                     case 1:
+                        imprimir("Has seleccionado la opcion 1 - Crear cliente"+ "\n" +
+                                "Por favor diligencia los siguientes datos"
+                        );
+                        System.out.println("Has seleccionado la opcion 1 - Crear cliente");
+
+                        String respuestaNombre = leerStringVentana("Ingresa tu nombre");
+                        String respuestaApellido = leerStringVentana("Ingresa tu apellido");
+                        int respuestaEdad =  leerEnteroVentana ("ingresa tu edad");
+                        String respuestaCedula = leerStringVentana("Ingresa tu cedula");
+                        String respuestaCorreo = leerStringVentana("Ingresa tu correo");
+
+                        academia.crearCliente(respuestaNombre, respuestaApellido,respuestaEdad, respuestaCedula,respuestaCorreo);
                         break;
                     case 2:
-
+                        String mensaje = "";
+                        for (int i = 0; i < academia.obtenerClientes().size(); i++) {
+                            String idCliente = Integer.toString(i+1);
+                            mensaje += idCliente +". "+ academia.obtenerClientes().get(i) + "\n";
+                        }
+                        JOptionPane.showMessageDialog(null, mensaje);
+                        System.out.println("Has seleccionado la opcion 2");
                         break;
                     case 3:
+                        String mensaje2 = "";
+                        for (int i = 0; i < academia.obtenerClientes().size(); i++) {
+                            String idCliente = Integer.toString(i+1);
+                            mensaje2 += idCliente +". "+ academia.obtenerClientes().get(i) + "\n";
+                        }
+                        System.out.println("Has seleccionado la opcion 3");
 
+                        //Actualizar
+
+                        String cedulaActualizar = leerStringVentana("Elige el numero de cédula del cliente que desea actualizar" + "\n"
+                                +"\n"+ mensaje2
+
+                        );
+
+                        String actualizarNombre = leerStringVentana("escriba el nuevo nombre");
+                        String actualizarApellido = leerStringVentana("escriba el nuevo apellido");
+
+                        int actualizarEdad = leerEnteroVentana("Elige la nueva edad");
+                        String actualizarCedula = leerStringVentana("escriba la nueva cedula");
+                        String actualizarCorreo = leerStringVentana("escriba el nuevo correo");
+
+
+                        academia.actualizarCliente
+                                (cedulaActualizar, academia.obtenerClientes(),actualizarNombre,actualizarApellido,actualizarEdad,actualizarCedula,actualizarCorreo);
                         break;
                     case 4:
-
+                        String mensaje3 = "";
+                        for (int i = 0; i < academia.obtenerClientes().size(); i++) {
+                            String idCliente = Integer.toString(i+1);
+                            mensaje3 += idCliente +". "+ academia.obtenerClientes().get(i) + "\n";
+                        }
+                        System.out.println("Has seleccionado la opcion 4");
+                        String numeroCedulaClienteEliminar = leerStringVentana("Para eliminar el cliente, por favor indica el numero de cedula" + "\n" + mensaje3);
+                        academia.eliminarCliente(numeroCedulaClienteEliminar);
                         break;
                     case 5:
                         salir = true;

@@ -10,13 +10,33 @@ public class Main {
 
     public static void main(String[] args) {
         Academia academiaBaile = inializarDatosPrueba();
-        opcionesMenuPrincipal(academiaBaile);
+        //Create
+        crearCliente("juan", "arias", 24, "1094","juan@1001",  academiaBaile);
+        crearCliente("ana", "alzate",35, "1095", " ana@1002", academiaBaile);
+        crearCliente("maria", "perez",22, "1096", "maria@1003", academiaBaile);
 
+        opcionesMenuPrincipal(academiaBaile);
     }
     private static Academia inializarDatosPrueba() {
         Academia academiaBaile = new Academia();
         academiaBaile.setNombre("Baila por tus sueños");
         academiaBaile.setUbicacion("Av 13 N Armenia, Quindio");
         return academiaBaile;
+    }
+    /**
+     * Método para Crear un Cliente
+     * @param nombre
+     * @param apellido
+     * @param cedula
+     * @param edad
+     * @param academiaBaile
+     */
+    private static void crearCliente(String nombre,
+                                     String apellido,
+                                     int edad,
+                                     String cedula,
+                                     String correo,
+                                     Academia academiaBaile) {
+        academiaBaile.crearCliente(nombre, apellido, edad, cedula, correo);
     }
 }
