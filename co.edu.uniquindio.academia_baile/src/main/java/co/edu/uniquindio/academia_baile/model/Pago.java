@@ -1,21 +1,26 @@
 package co.edu.uniquindio.academia_baile.model;
 
-/**
- * Atributos de la clase pago
- */
 public class Pago {
+
+    /**
+     * Atributos Clase Pago
+     */
     private Inscripcion inscripcion;
     private double valorPagar;
+
+    /**
+     * Variable para Relacionar Padre
+     */
     Academia ownedByAcademia;
 
     /**
-     * Constructor vacio
+     * Constructor Vacío
      */
     public Pago() {
     }
 
     /**
-     * Constructor con parámetros
+     * Constructor con Parámetros
      * @param inscripcion
      * @param valorApagar
      */
@@ -25,7 +30,7 @@ public class Pago {
     }
 
     /**
-     * getters y setters
+     * Getters y Setters de Atributos Clase Pago
      * @return
      */
     public Inscripcion getInscripcion() {
@@ -44,6 +49,10 @@ public class Pago {
         this.valorPagar = valorPagar;
     }
 
+    /**
+     * Getters y Setters de Variable para Relacionar Padre
+     * @return
+     */
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -51,8 +60,11 @@ public class Pago {
     public void setOwnedByAcademia(Academia ownedByAcademia) {
         this.ownedByAcademia = ownedByAcademia;
     }
-<<<<<<< HEAD
 
+    /**
+     * To String Clase Pago
+     * @return
+     */
     @Override
     public String toString() {
         return "Pago{" +
@@ -61,6 +73,3 @@ public class Pago {
                 '}';
     }
 }
-=======
-}
->>>>>>> 33bc1c140d071df5428018b4f75518760d2da131

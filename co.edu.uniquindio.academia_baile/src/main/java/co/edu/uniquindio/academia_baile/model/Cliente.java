@@ -1,24 +1,29 @@
 package co.edu.uniquindio.academia_baile.model;
 
-/**
- *Atributos de la clase Cliente
- */
-public class Cliente {
+public class Cliente extends Academia {
+
+    /**
+     * Atributos Clase Cliente
+     */
     private String nombre;
     private String apellido;
     private int edad;
     private String cedula;
     private String correo;
+
+    /**
+     * Variable para Relacionar Padre
+     */
     Academia ownedByAcademia;
 
     /**
-     * Constructor vacio
+     * Constructor Vacío
      */
     public Cliente() {
     }
 
     /**
-     * Constructor con parámetros
+     * Constructor con Parámetros
      * @param nombre
      * @param apellido
      * @param edad
@@ -34,7 +39,7 @@ public class Cliente {
     }
 
     /**
-     * getters y setters
+     * Getters y Setters de Atributos Clase Cliente
      * @return
      */
     public String getNombre() {
@@ -77,6 +82,10 @@ public class Cliente {
         this.correo = correo;
     }
 
+    /**
+     * Getters y Setters de Variable para Relacionar Padre
+     * @return
+     */
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -85,6 +94,10 @@ public class Cliente {
         this.ownedByAcademia = ownedByAcademia;
     }
 
+    /**
+     * To String Clase Cliente
+     * @return
+     */
     @Override
     public String toString() {
         return "Cliente{" +

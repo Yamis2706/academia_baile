@@ -5,7 +5,7 @@ import javax.swing.*;
 public class CapturaDatosUtil {
 
     /**
-     * Este método sirve para imprimir un mensaje con la libreria JOptionPane
+     * Método para Imprimir Mensaje Librería JOptionPane
      * @param mensaje
      */
     public static void imprimir (String mensaje) {
@@ -13,7 +13,7 @@ public class CapturaDatosUtil {
     }
 
     /**
-     * Este método sirve para leer un dato de tipo entero con la libreria JOptionPane
+     * Método para Leer Dato Tipo Entero Librería JOptionPane
      * @param mensaje
      * @return
      */
@@ -23,7 +23,7 @@ public class CapturaDatosUtil {
     }
 
     /**
-     * Este método sirve para leer un dato de tipo String con la libreria JOptionPane
+     * Método para Leer Dato Tipo String Librería JOptionPane
      * @param mensaje
      * @return
      */

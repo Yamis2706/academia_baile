@@ -1,21 +1,26 @@
 package co.edu.uniquindio.academia_baile.model;
 
-/**
- * Atributos de la clase inscripcion
- */
 public class Inscripcion {
+
+    /**
+     * Atributos Clase Inscripción
+     */
     private Cliente cliente;
     private Curso curso;
+
+    /**
+     * Variable para Relacionar Padre
+     */
     Academia ownedByAcademia;
 
     /**
-     * Constructor vacio
+     * Constructor Vacío
      */
     public Inscripcion() {
     }
 
     /**
-     * Constructor con parámetros
+     * Constructor con Parámetros
      * @param cliente
      * @param curso
      */
@@ -25,7 +30,7 @@ public class Inscripcion {
     }
 
     /**
-     * getters y setters
+     * Getters y Setters de Atributos Clase Inscripción
      * @return
      */
     public Cliente getCliente() {
@@ -44,6 +49,10 @@ public class Inscripcion {
         this.curso = curso;
     }
 
+    /**
+     * Getters y Setters de Variable para Relacionar Padre
+     * @return
+     */
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -52,6 +61,10 @@ public class Inscripcion {
         this.ownedByAcademia = ownedByAcademia;
     }
 
+    /**
+     * To String Clase Inscripción
+     * @return
+     */
     @Override
     public String toString() {
         return "Inscripción{" +

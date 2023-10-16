@@ -1,24 +1,29 @@
 package co.edu.uniquindio.academia_baile.model;
 
-/**
- * Atributos de la clase empleado
- */
-public class Empleado {
+public class Empleado extends Academia {
+
+    /**
+     * Atributos Clase Empleado
+     */
     private String nombre;
     private String apellido;
     private int edad;
     private String cedula;
     private String correo;
+
+    /**
+     * Variable para Relacionar Padre
+     */
     Academia ownedByAcademia;
 
     /**
-     * Constructor vacio
+     * Constructor Vacío
      */
     public Empleado() {
     }
 
     /**
-     * Constructor con parametros
+     * Constructor con Parámetros
      * @param nombre
      * @param apellido
      * @param edad
@@ -34,7 +39,7 @@ public class Empleado {
     }
 
     /**
-     * getters y setters
+     * Getters y Setters de Atributos Clase Empleado
      * @return
      */
     public String getNombre() {
@@ -77,6 +82,11 @@ public class Empleado {
         this.correo = correo;
     }
 
+    /**
+     * Getters y Setters de Variable para Relacionar Padre
+     * @return
+     */
+
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -85,6 +95,10 @@ public class Empleado {
         this.ownedByAcademia = ownedByAcademia;
     }
 
+    /**
+     * To String Clase Empleado
+     * @return
+     */
     @Override
     public String toString() {
         return "Empleado{" +

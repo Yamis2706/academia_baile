@@ -4,28 +4,31 @@ import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
 import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
 import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
 
-/**
- * Atributos de la clase Curso
- */
 public class Curso {
 
+    /**
+     * Atributos Clase Curso
+     */
     private TipoBaile tipoBaile;
     private Categoria categoria;
     private Nivel nivel;
     private String profesor;
     private int horario;
     private double precioMes;
-    Academia ownedByAcademia;
-
 
     /**
-     * Constructor vacio
+     * Variable para Relacionar Padre
+     */
+    Academia ownedByAcademia;
+
+    /**
+     * Constructor Vacío
      */
     public Curso() {
     }
 
     /**
-     * Constructor con parámetros
+     * Constructor con Parámetros
      * @param tipoBaile
      * @param categoria
      * @param nivel
@@ -44,7 +47,7 @@ public class Curso {
     }
 
     /**
-     * getters y setters
+     * Getters y Setters de Atributos Clase Curso
      * @return
      */
     public TipoBaile getTipoBaile() {
@@ -95,6 +98,10 @@ public class Curso {
         this.precioMes = precioMes;
     }
 
+    /**
+     * Getters y Setters de Variable para Relacionar Padre
+     * @return
+     */
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -103,7 +110,27 @@ public class Curso {
         this.ownedByAcademia = ownedByAcademia;
     }
 
+    /**
+     * To String Clase Curso
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "tipoBaile=" + tipoBaile +
+                ", categoria=" + categoria +
+                ", nivel=" + nivel +
+                ", profesor='" + profesor + '\'' +
+                ", horario=" + horario +
+                ", precioMes=" + precioMes +
+                '}';
+    }
 
+
+    /**
+     * Método para Obtener Información
+     * @return
+     */
     public String obtenerInformacion() {
         String informacion = "";
         informacion = informacion + "\n" +
@@ -114,5 +141,20 @@ public class Curso {
                 "Horario: " + getHorario() + "\n" +
                 "Precio del Mes: $ " + getPrecioMes() + "\n";
         return informacion;
+    }
+
+
+    /**
+     * Método para Calcular Promedio Precio
+     * @param precioMes
+     * @return
+     */
+    public double calcularPromedioPrecio(double precioMes) {
+        double promedioPrecio = 0.0;
+        double curso1 = 180.000;
+        double curso2 = 150.000;
+        double curso3 = 220.000;
+        promedioPrecio = (curso1 + curso2 + curso3) / 3;
+        return promedioPrecio;
     }
 }
