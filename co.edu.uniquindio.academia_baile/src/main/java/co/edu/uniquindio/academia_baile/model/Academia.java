@@ -132,7 +132,8 @@ public class Academia {
      * @param correo
      * @return
      */
-    public boolean crearCliente(String nombre, String apellido, int edad, String cedula, String correo) {
+    public boolean crearCliente(String nombre, String apellido, int edad, String cedula,
+                                String correo) {
         Cliente cliente = new Cliente();
         boolean cedulaExistente = false;
         for (Cliente cliente2 : listaClientes) {

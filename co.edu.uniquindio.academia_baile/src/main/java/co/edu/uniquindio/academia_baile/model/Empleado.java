@@ -5,6 +5,7 @@ public class Empleado extends Academia {
     /**
      * Atributos Clase Empleado
      */
+    
     private String nombre;
     private String apellido;
     private int edad;
