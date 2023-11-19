@@ -5,6 +5,7 @@ public class Inscripcion {
     /**
      * Atributos Clase Inscripción
      */
+    private int numeroInscripcion;
     private Cliente cliente;
     private Curso curso;
 
@@ -24,7 +25,8 @@ public class Inscripcion {
      * @param cliente
      * @param curso
      */
-    public Inscripcion(Cliente cliente, Curso curso) {
+    public Inscripcion(int numeroInscripcion, Cliente cliente, Curso curso) {
+        this.numeroInscripcion = numeroInscripcion;
         this.cliente = cliente;
         this.curso = curso;
     }
@@ -47,6 +49,14 @@ public class Inscripcion {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public int getNumeroInscripcion() {
+        return numeroInscripcion;
+    }
+
+    public void setNumeroInscripcion(int numeroInscripcion) {
+        this.numeroInscripcion = numeroInscripcion;
     }
 
     /**

@@ -47,7 +47,6 @@ public class Main {
     private static Academia inializarDatosPrueba() {
         Academia academiaBaile = new Academia();
         academiaBaile.setNombre("Baila por tus Sueños");
-        academiaBaile.setUbicacion("Avenida 13 Norte de la ciudad de Armenia, Quindío");
         return academiaBaile;
     }
 

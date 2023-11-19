@@ -9,12 +9,12 @@ public class Curso {
     /**
      * Atributos Clase Curso
      */
+
     private TipoBaile tipoBaile;
     private Categoria categoria;
     private Nivel nivel;
     private String profesor;
     private int horario;
-    private double precioMes;
 
     /**
      * Variable para Relacionar Padre
@@ -43,7 +43,6 @@ public class Curso {
         this.nivel = nivel;
         this.profesor = profesor;
         this.horario = horario;
-        this.precioMes = precioMes;
     }
 
     /**
@@ -90,13 +89,6 @@ public class Curso {
         this.horario = horario;
     }
 
-    public double getPrecioMes() {
-        return precioMes;
-    }
-
-    public void setPrecioMes(double precioMes) {
-        this.precioMes = precioMes;
-    }
 
     /**
      * Getters y Setters de Variable para Relacionar Padre
@@ -122,7 +114,6 @@ public class Curso {
                 ", nivel=" + nivel +
                 ", profesor='" + profesor + '\'' +
                 ", horario=" + horario +
-                ", precioMes=" + precioMes +
                 '}';
     }
 
@@ -138,8 +129,7 @@ public class Curso {
                 "Categoría: " + getCategoria() + "\n" +
                 "Nivel: " + getNivel() + "\n" +
                 "Profesor: " + getProfesor() + "\n" +
-                "Horario: " + getHorario() + "\n" +
-                "Precio del Mes: $ " + getPrecioMes() + "\n";
+                "Horario: " + getHorario() + "\n";
         return informacion;
     }
 

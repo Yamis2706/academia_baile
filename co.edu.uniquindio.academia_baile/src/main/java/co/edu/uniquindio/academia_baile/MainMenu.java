@@ -1,6 +1,7 @@
 package co.edu.uniquindio.academia_baile;
 
 import co.edu.uniquindio.academia_baile.model.Academia;
+import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
 
 import javax.swing.*;
 import java.util.InputMismatchException;
@@ -38,6 +39,17 @@ public class MainMenu {
                 "5 - Volver al Menú Principal";
     }
 
+    public static String mostrarMenuInscripciones() {
+        return "Ha elegido la opción 4. Inscripciones, indique la " +
+                "acción" +
+                " que desea realizar:" + "\n" + "\n" +
+                "1 - Crear Inscripción" +"\n" +
+                "2 - Obtener Inscripción" +"\n" +
+                "3 - Actualizar Información de la Inscripción" +"\n" +
+                "4 - Eliminar Inscripción" +"\n" +
+                "5 - Volver al Menú Principal";
+    }
+
     /**
      *Método para Elegir las Opciones del Sistema
      * @param academia
@@ -62,7 +74,9 @@ public class MainMenu {
 
                         break;
                     case 4:
-
+                        System.out.println("Ha seleccionado la opcion 4 - " +
+                                "Inscripciones");
+                        menuInscripcion(academia);
                         break;
                     case 5:
 
@@ -157,5 +171,101 @@ public class MainMenu {
                 sn.next();
             }
         }
+    }
+
+    public static void menuInscripcion(Academia academia) {
+        Scanner sn = new Scanner(System.in);
+        boolean salir = false;
+        int opcion;
+        while (!salir) {
+            opcion = leerEnteroVentana(mostrarMenuInscripciones());
+            try {
+                System.out.println("Ingrese una de las siguientes opciones");
+                switch (opcion) {
+                    case 1:
+                        crearInscripcion(academia);
+                        break;
+                    case 2:
+
+                        obtenerInscripciones(academia);
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+                        String mensaje3 = "";
+                        for (int i = 0; i < academia.obtenerClientes().size(); i++) {
+                            String idCliente = Integer.toString(i+1);
+                            mensaje3 += idCliente +". "+ academia.obtenerClientes().get(i) + "\n";
+                        }
+                        System.out.println("Ha seleccionado la opción 4");
+                        String numeroCedulaClienteEliminar = leerStringVentana("Para eliminar el cliente, " +
+                                "por favor digitar el número de cédula:" + "\n" + "\n" + mensaje3);
+                        academia.eliminarCliente(numeroCedulaClienteEliminar);
+                        break;
+                    case 5:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Solo se permiten los números entre 1 y 5");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debe digitar un número");
+                sn.next();
+            }
+        }
+    }
+
+    private static void crearInscripcion(Academia academia){
+        imprimir("Ha seleccionado la opcion 1 - Crear inscrpcion" + "\n" +
+                "\n" +
+                "Por favor diligenciar los siguientes datos:"
+        );
+        int numeroInscripcion = leerEnteroVentana("Ingrese el numero de " +
+                "inscripcion");
+        String cedulaCliente = leerStringVentana("Ingrese la cedula del " +
+                "cliente");
+        String tipoBaile = leerStringVentana("Ingrese el tipo baile");
+        String categoria = leerStringVentana("Ingrese la categoria");
+        String respuestNivel = leerStringVentana("Ingrese su Nivel");
+        academia.crearInscripcion(numeroInscripcion, cedulaCliente, TipoBaile.valueOf(tipoBaile), categoria,
+                respuestNivel);
+    }
+    private static void obtenerInscripciones(Academia academia){
+        String mensaje = "";
+        for (int i = 0; i < academia.getListaInscripciones().size(); i++) {
+            String idCliente = Integer.toString(i+1);
+            mensaje += idCliente +". " +academia.getListaInscripciones().get(i).getNumeroInscripcion()+ "  " +
+                    academia.getListaInscripciones().get(i).getCurso().getTipoBaile()+ "  " +
+                    academia.getListaInscripciones().get(i).getCliente().getCedula()+"  " +
+                    academia.getListaInscripciones().get(i).getCliente().getNombre() +"  " +
+                     academia.getListaInscripciones().get(i).getCliente().getEdad() + "\n";
+        }
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+    private static void actualizarInscripcion(Academia academia){
+        String mensaje2 = "";
+        for (int i = 0; i < academia.getListaInscripciones().size(); i++) {
+            String idCliente = Integer.toString(i+1);
+            mensaje2 += idCliente +". " +academia.getListaInscripciones().get(i).getNumeroInscripcion()+ "  " +
+                    academia.getListaInscripciones().get(i).getCurso().getTipoBaile()+ "  " +
+                    academia.getListaInscripciones().get(i).getCliente().getCedula()+"  " +
+                    academia.getListaInscripciones().get(i).getCliente().getNombre() +"  " +
+                    academia.getListaInscripciones().get(i).getCliente().getEdad() + "\n";
+        }
+        System.out.println("Ha seleccionado la opción 3");
+        String cedulaActualizar = leerStringVentana("Digite el " +
+                "getNumeroInscripcion " +
+                "que desea actualizar:" + "\n"
+                + "\n" + mensaje2
+        );
+        int numeroInscripcion = leerEnteroVentana("ingrese el numero de " +
+                "inscripcion");
+        String cedulaCliente = leerStringVentana("Digite el nuevo Nombre");
+        String tipoBaile = leerStringVentana("Digite el nuevo Apellido");
+        String categoria = leerStringVentana("Digite la nueva Cédula");
+        String respuestNivel = leerStringVentana("Digite el nuevo Correo");
+        academia.actualizarInscripcion(numeroInscripcion, cedulaCliente, TipoBaile.valueOf(tipoBaile), categoria,
+                respuestNivel);
     }
 }

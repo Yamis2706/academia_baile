@@ -3,19 +3,19 @@ package co.edu.uniquindio.academia_baile.model;
 import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
 import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
 import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
+import co.edu.uniquindio.academia_baile.services.IAcademia;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static co.edu.uniquindio.academia_baile.util.CapturaDatosUtil.imprimir;
 
-public class Academia {
+public class Academia implements IAcademia {
 
     /**
      * Atributos Clase Academia
      */
     private String nombre;
-    private String ubicacion;
 
     /**
      * ArrayList de las Clases Creadas
@@ -35,11 +35,9 @@ public class Academia {
     /**
      * Constructor con Parámetros
      * @param nombre
-     * @param ubicacion
      */
-    public Academia(String nombre, String ubicacion) {
+    public Academia(String nombre) {
         this.nombre = nombre;
-        this.ubicacion = ubicacion;
     }
 
     /**
@@ -52,14 +50,6 @@ public class Academia {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     /**
@@ -114,7 +104,6 @@ public class Academia {
     public String toString() {
         return "Academia{" +
                 "nombre='" + nombre + '\'' +
-                ", ubicacion='" + ubicacion + '\'' +
                 ", listaClientes=" + listaClientes +
                 ", listaCursos=" + listaCursos +
                 ", listaEmpleados=" + listaEmpleados +
@@ -253,7 +242,6 @@ public class Academia {
             curso.setNivel(nivel);
             curso.setProfesor(profesor);
             curso.setHorario(horario);
-            curso.setPrecioMes(precioMes);
             getListaCursos().add(curso);
         }
         return true;
@@ -298,7 +286,6 @@ public class Academia {
             listaCursos.get(indice).setNivel(nivel);
             listaCursos.get(indice).setProfesor(profesor);
             listaCursos.get(indice).setHorario(horario);
-            listaCursos.get(indice).setPrecioMes(precioMes);
         }
     }
 
@@ -312,6 +299,15 @@ public class Academia {
     public static int obtenerPosicionPorTipoBaile( List<Curso> lista, TipoBaile tipoBaile) {
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).getTipoBaile().equals(tipoBaile)) {
+                return i;  // Se encontró el nombre en la posición i
+            }
+        }
+        return -1;  // No se encontró el nombre en la lista
+    }
+    public static int obtenerPosicionPorNumeroInscripcion( List<Inscripcion> lista,
+                                                   int numeroinscripcion) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNumeroInscripcion() == numeroinscripcion) {
                 return i;  // Se encontró el nombre en la posición i
             }
         }
@@ -342,4 +338,97 @@ public class Academia {
     public void mostrarPromedioPrecio(double promedioPrecio){
         System.out.println("El promedio del precio de los cursos es de: $ " + promedioPrecio);
     }
+
+    @Override
+    public boolean crearInscripcion(int numeroIncripcion,
+                                    String cedulaCliente,
+                                    TipoBaile tipoBaile,
+                                    String categoria,
+                                    String nivel) {
+
+        Cliente clientes = obtenerCliente(cedulaCliente);
+       // Empleado empleado = obtenerEmpleado(cedulaCliente);
+        Curso curso = obtenerCurso(tipoBaile);
+
+        if(clientes == null ||  curso == null){
+            return false;
+        }
+
+        Inscripcion inscripcion = new Inscripcion();
+        inscripcion.setCliente(clientes);
+        inscripcion.setCurso(curso);
+
+        getListaInscripciones().add(inscripcion);
+
+
+        return true;
+    }
+
+    @Override
+    public boolean eliminarInscripcion(int numeroIncripcion) {
+        return false;
+    }
+
+    @Override
+    public boolean actualizarInscripcion(int numeroIncripcion,
+                                         String cedulaCliente, TipoBaile tipoBaile,
+                                         String categoria, String nivel) {
+
+        int indice = obtenerPosicionPorNumeroInscripcion(getListaInscripciones(),numeroIncripcion);
+        boolean inscripcionExistente = false;
+        for (Inscripcion inscripcion: getListaInscripciones()){
+            if(inscripcion.getNumeroInscripcion()== numeroIncripcion){
+                inscripcionExistente = true;
+                break;
+            }
+        }
+        if(inscripcionExistente){
+            imprimir("El tipo de baile ya existe, digite de nuevo el dato correcto");
+        }else{
+            listaInscripciones.get(indice).setNumeroInscripcion(numeroIncripcion);
+
+            //listaInscripciones.get(indice).setCurso();
+
+        }
+        return false; //Pendiente
+    }
+
+    @Override
+    public boolean obtenerInscripcion(int numeroIncripcion) {
+        return false;
+    }
+
+    public Cliente obtenerCliente(String cedula){
+        Cliente clienteEncontrado = null;
+        for (Cliente cliente : getListaClientes()) {
+            if (cliente.getCedula().equalsIgnoreCase(cedula)){
+                clienteEncontrado = cliente;
+                break;
+            }
+        }
+
+        return clienteEncontrado;
+    }
+
+    public Empleado obtenerEmpleado(String cedulaEmpleado) {
+        Empleado empleadoEncontrado = null;
+        for (Empleado empleado: getListaEmpleados()) {
+            if (empleado.getCedula().equalsIgnoreCase(cedulaEmpleado)){
+                empleadoEncontrado = empleado;
+            }
+        }
+
+        return empleadoEncontrado;
+    }
+    public Curso obtenerCurso(TipoBaile tipoBaile) {
+        Curso cursoEncontrado = null;
+        for (Curso curso: getListaCursos()) {
+            if (curso.getTipoBaile().equals(tipoBaile)){
+                cursoEncontrado = curso;
+            }
+        }
+
+        return cursoEncontrado;
+    }
+
 }

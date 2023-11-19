@@ -5,6 +5,7 @@ public class Pago {
     /**
      * Atributos Clase Pago
      */
+    private int numeroPago;
     private Inscripcion inscripcion;
     private double valorPagar;
 
