@@ -1,4 +1,4 @@
-package co.edu.uniquindio.academia_baile.util;
+package co.edu.uniquindio.academia_baile;
 
 import co.edu.uniquindio.academia_baile.model.Academia;
 import co.edu.uniquindio.academia_baile.model.Cliente;
@@ -39,18 +39,15 @@ public class MainTransaccion {
 
         Cliente cliente1 = new Cliente();
         cliente1.setNombre("Jorge");
-        cliente1.setApellido("Alfonso");
         cliente1.setCedula("1094");
         cliente1.setEdad(25);
         Cliente cliente2 = new Cliente();
         cliente2.setNombre("Margarita");
-        cliente2.setApellido("Garza");
         cliente2.setCedula("1095");
         cliente2.setEdad(32);
 
         Empleado empleado1 = new Empleado();
         empleado1.setNombre("Sofía");
-        empleado1.setApellido("Mora");
         empleado1.setCedula("1080");
         empleado1.setEdad(41);
 
@@ -59,7 +56,6 @@ public class MainTransaccion {
         curso.setCategoria(ADULTOS);
         curso.setNivel(MEDIO);
         curso.setProfesor("Sofía Mora");
-        curso.setHorario(2);
 
         cliente1.setOwnedByAcademia(academia);
         cliente2.setOwnedByAcademia(academia);

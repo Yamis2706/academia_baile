@@ -239,10 +239,10 @@ public class MainMenu {
         for (int i = 0; i < academia.getListaInscripciones().size(); i++) {
             String idCliente = Integer.toString(i+1);
             mensaje += idCliente +". " +academia.getListaInscripciones().get(i).getNumeroInscripcion()+ "  " +
-                    academia.getListaInscripciones().get(i).getCurso().getTipoBaile()+ "  " +
-                    academia.getListaInscripciones().get(i).getCliente().getCedula()+"  " +
-                    academia.getListaInscripciones().get(i).getCliente().getNombre() +"  " +
-                     academia.getListaInscripciones().get(i).getCliente().getEdad() + "\n";
+                    academia.getListaInscripciones().get(i).getCursoAsociado().getTipoBaile()+ "  " +
+                    academia.getListaInscripciones().get(i).getClienteAsociado().getCedula()+"  " +
+                    academia.getListaInscripciones().get(i).getClienteAsociado().getNombre() +"  " +
+                     academia.getListaInscripciones().get(i).getClienteAsociado().getEdad() + "\n";
         }
         JOptionPane.showMessageDialog(null, mensaje);
     }
@@ -251,10 +251,10 @@ public class MainMenu {
         for (int i = 0; i < academia.getListaInscripciones().size(); i++) {
             String idCliente = Integer.toString(i+1);
             mensaje2 +=  academia.getListaInscripciones().get(i).getNumeroInscripcion()+" "+
-                    academia.getListaInscripciones().get(i).getCurso().getTipoBaile()+ "  " +
-                    academia.getListaInscripciones().get(i).getCliente().getCedula()+"  " +
-                    academia.getListaInscripciones().get(i).getCliente().getNombre() +"  " +
-                    academia.getListaInscripciones().get(i).getCliente().getEdad() + "\n";
+                    academia.getListaInscripciones().get(i).getCursoAsociado().getTipoBaile()+ "  " +
+                    academia.getListaInscripciones().get(i).getClienteAsociado().getCedula()+"  " +
+                    academia.getListaInscripciones().get(i).getClienteAsociado().getNombre() +"  " +
+                    academia.getListaInscripciones().get(i).getClienteAsociado().getEdad() + "\n";
         }
         System.out.println("Ha seleccionado la opción 3");
         String cedulaActualizar = leerStringVentana("Digite el " +

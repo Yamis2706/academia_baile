@@ -6,8 +6,8 @@ public class Inscripcion {
      * Atributos Clase Inscripción
      */
     private int numeroInscripcion;
-    private Cliente cliente;
-    private Curso curso;
+    private Cliente clienteAsociado;
+    private Curso cursoAsociado;
 
     /**
      * Variable para Relacionar Padre
@@ -20,37 +20,6 @@ public class Inscripcion {
     public Inscripcion() {
     }
 
-    /**
-     * Constructor con Parámetros
-     * @param cliente
-     * @param curso
-     */
-    public Inscripcion(int numeroInscripcion, Cliente cliente, Curso curso) {
-        this.numeroInscripcion = numeroInscripcion;
-        this.cliente = cliente;
-        this.curso = curso;
-    }
-
-    /**
-     * Getters y Setters de Atributos Clase Inscripción
-     * @return
-     */
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
     public int getNumeroInscripcion() {
         return numeroInscripcion;
     }
@@ -59,10 +28,22 @@ public class Inscripcion {
         this.numeroInscripcion = numeroInscripcion;
     }
 
-    /**
-     * Getters y Setters de Variable para Relacionar Padre
-     * @return
-     */
+    public Cliente getClienteAsociado() {
+        return clienteAsociado;
+    }
+
+    public void setClienteAsociado(Cliente clienteAsociado) {
+        this.clienteAsociado = clienteAsociado;
+    }
+
+    public Curso getCursoAsociado() {
+        return cursoAsociado;
+    }
+
+    public void setCursoAsociado(Curso cursoAsociado) {
+        this.cursoAsociado = cursoAsociado;
+    }
+
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -71,15 +52,13 @@ public class Inscripcion {
         this.ownedByAcademia = ownedByAcademia;
     }
 
-    /**
-     * To String Clase Inscripción
-     * @return
-     */
     @Override
     public String toString() {
-        return "Inscripción{" +
-                "Cliente=" + cliente +
-                ", Curso=" + curso +
+        return "Inscripcion{" +
+                "numeroInscripcion=" + numeroInscripcion +
+                ", clienteAsociado=" + clienteAsociado +
+                ", cursoAsociado=" + cursoAsociado +
+                ", ownedByAcademia=" + ownedByAcademia +
                 '}';
     }
 }

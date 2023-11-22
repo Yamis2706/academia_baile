@@ -6,7 +6,7 @@ public class Pago {
      * Atributos Clase Pago
      */
     private int numeroPago;
-    private Inscripcion inscripcion;
+    private Inscripcion inscripcionAsociada;
     private double valorPagar;
 
     /**
@@ -20,26 +20,26 @@ public class Pago {
     public Pago() {
     }
 
-    /**
-     * Constructor con Parámetros
-     * @param inscripcion
-     * @param valorApagar
-     */
-    public Pago(Inscripcion inscripcion, double valorApagar) {
-        this.inscripcion = inscripcion;
-        this.valorPagar = valorApagar;
+    public Pago(int numeroPago, Inscripcion inscripcionAsociada, double valorPagar) {
+        this.numeroPago = numeroPago;
+        this.inscripcionAsociada = inscripcionAsociada;
+        this.valorPagar = valorPagar;
     }
 
-    /**
-     * Getters y Setters de Atributos Clase Pago
-     * @return
-     */
-    public Inscripcion getInscripcion() {
-        return inscripcion;
+    public int getNumeroPago() {
+        return numeroPago;
     }
 
-    public void setInscripcion(Inscripcion inscripcion) {
-        this.inscripcion = inscripcion;
+    public void setNumeroPago(int numeroPago) {
+        this.numeroPago = numeroPago;
+    }
+
+    public Inscripcion getInscripcionAsociada() {
+        return inscripcionAsociada;
+    }
+
+    public void setInscripcionAsociada(Inscripcion inscripcionAsociada) {
+        this.inscripcionAsociada = inscripcionAsociada;
     }
 
     public double getValorPagar() {
@@ -50,10 +50,6 @@ public class Pago {
         this.valorPagar = valorPagar;
     }
 
-    /**
-     * Getters y Setters de Variable para Relacionar Padre
-     * @return
-     */
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -62,14 +58,11 @@ public class Pago {
         this.ownedByAcademia = ownedByAcademia;
     }
 
-    /**
-     * To String Clase Pago
-     * @return
-     */
     @Override
     public String toString() {
         return "Pago{" +
-                "inscripcion=" + inscripcion +
+                "numeroPago=" + numeroPago +
+                ", inscripcionAsociada=" + inscripcionAsociada +
                 ", valorPagar=" + valorPagar +
                 '}';
     }

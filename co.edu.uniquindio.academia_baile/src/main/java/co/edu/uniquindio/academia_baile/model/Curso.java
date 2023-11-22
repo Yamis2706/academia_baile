@@ -14,7 +14,6 @@ public class Curso {
     private Categoria categoria;
     private Nivel nivel;
     private String profesor;
-    private int horario;
 
     /**
      * Variable para Relacionar Padre
@@ -27,31 +26,14 @@ public class Curso {
     public Curso() {
     }
 
-    /**
-     * Constructor con Parámetros
-     * @param tipoBaile
-     * @param categoria
-     * @param nivel
-     * @param profesor
-     */
-    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel,
-                 String profesor) {
+    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, Academia ownedByAcademia) {
         this.tipoBaile = tipoBaile;
         this.categoria = categoria;
         this.nivel = nivel;
         this.profesor = profesor;
+        this.ownedByAcademia = ownedByAcademia;
     }
 
-    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel) {
-        this.tipoBaile = tipoBaile;
-        this.categoria = categoria;
-        this.nivel = nivel;
-    }
-
-    /**
-     * Getters y Setters de Atributos Clase Curso
-     * @return
-     */
     public TipoBaile getTipoBaile() {
         return tipoBaile;
     }
@@ -84,19 +66,6 @@ public class Curso {
         this.profesor = profesor;
     }
 
-    public int getHorario() {
-        return horario;
-    }
-
-    public void setHorario(int horario) {
-        this.horario = horario;
-    }
-
-
-    /**
-     * Getters y Setters de Variable para Relacionar Padre
-     * @return
-     */
     public Academia getOwnedByAcademia() {
         return ownedByAcademia;
     }
@@ -105,10 +74,6 @@ public class Curso {
         this.ownedByAcademia = ownedByAcademia;
     }
 
-    /**
-     * To String Clase Curso
-     * @return
-     */
     @Override
     public String toString() {
         return "Curso{" +
@@ -116,38 +81,6 @@ public class Curso {
                 ", categoria=" + categoria +
                 ", nivel=" + nivel +
                 ", profesor='" + profesor + '\'' +
-                ", horario=" + horario +
                 '}';
-    }
-
-
-    /**
-     * Método para Obtener Información
-     * @return
-     */
-    public String obtenerInformacion() {
-        String informacion = "";
-        informacion = informacion + "\n" +
-                "Tipo de Baile: " + getTipoBaile() + "\n" +
-                "Categoría: " + getCategoria() + "\n" +
-                "Nivel: " + getNivel() + "\n" +
-                "Profesor: " + getProfesor() + "\n" +
-                "Horario: " + getHorario() + "\n";
-        return informacion;
-    }
-
-
-    /**
-     * Método para Calcular Promedio Precio
-     * @param precioMes
-     * @return
-     */
-    public double calcularPromedioPrecio(double precioMes) {
-        double promedioPrecio = 0.0;
-        double curso1 = 180.000;
-        double curso2 = 150.000;
-        double curso3 = 220.000;
-        promedioPrecio = (curso1 + curso2 + curso3) / 3;
-        return promedioPrecio;
     }
 }

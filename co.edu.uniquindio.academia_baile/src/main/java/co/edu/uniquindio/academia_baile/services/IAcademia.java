@@ -1,7 +1,6 @@
 package co.edu.uniquindio.academia_baile.services;
 
-import co.edu.uniquindio.academia_baile.model.Cliente;
-import co.edu.uniquindio.academia_baile.model.Curso;
+import co.edu.uniquindio.academia_baile.model.Inscripcion;
 import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
 import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
 import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
@@ -10,18 +9,14 @@ public interface IAcademia {
 
     boolean crearInscripcion(int numeroIncripcion,
                              String cedulaCliente,
-                             TipoBaile tipoBaile,
-                             String categoria,
-                             String nivel
+                             TipoBaile tipoBaile
                             );
 
     boolean eliminarInscripcion (int numeroIncripcion);
 
     boolean actualizarInscripcion (int numeroIncripcion,
                                    String cedulaCliente,
-                                   TipoBaile tipoBaile,
-                                   Categoria categoria,
-                                   Nivel nivel);
+                                   TipoBaile tipoBaile);
 
-    boolean obtenerInscripcion (int numeroIncripcion);
+    Inscripcion obtenerInscripcion (int numeroIncripcion);
 }

@@ -135,10 +135,8 @@ public class Academia implements IAcademia {
             imprimir("El número de cédula ya existe, digite de nuevo el dato correcto");
         } else {
             cliente.setNombre(nombre);
-            cliente.setApellido(apellido);
             cliente.setEdad(edad);
             cliente.setCedula(cedula);
-            cliente.setCorreo(correo);
             getListaClientes().add(cliente);
         }
         return true;
@@ -176,10 +174,8 @@ public class Academia implements IAcademia {
             imprimir("El número de cédula ya existe, digite de nuevo el dato correcto");
         }else{
             listaClientes.get(indice).setNombre(nombre);
-            listaClientes.get(indice).setApellido(apellido);
             listaClientes.get(indice).setEdad(edad);
             listaClientes.get(indice).setCedula(cedula);
-            listaClientes.get(indice).setCorreo(correo);
         }
     }
 
@@ -241,7 +237,6 @@ public class Academia implements IAcademia {
             curso.setCategoria(categoria);
             curso.setNivel(nivel);
             curso.setProfesor(profesor);
-            curso.setHorario(horario);
             getListaCursos().add(curso);
         }
         return true;
@@ -285,7 +280,6 @@ public class Academia implements IAcademia {
             listaCursos.get(indice).setCategoria(categoria);
             listaCursos.get(indice).setNivel(nivel);
             listaCursos.get(indice).setProfesor(profesor);
-            listaCursos.get(indice).setHorario(horario);
         }
     }
 
@@ -306,12 +300,14 @@ public class Academia implements IAcademia {
     }
     public static int obtenerPosicionPorNumeroInscripcion( List<Inscripcion> lista,
                                                    int numeroinscripcion) {
+        int retorno = -1;
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).getNumeroInscripcion() == numeroinscripcion) {
-                return i;  // Se encontró el nombre en la posición i
+                retorno = i;  // Se encontró el nombre en la posición i
+                System.out.println("posicion: "+i);
             }
         }
-        return -1;  // No se encontró el nombre en la lista
+        return retorno;  // No se encontró el nombre en la lista
     }
 
 
@@ -342,9 +338,7 @@ public class Academia implements IAcademia {
     @Override
     public boolean crearInscripcion(int numeroIncripcion,
                                     String cedulaCliente,
-                                    TipoBaile tipoBaile,
-                                    String categoria,
-                                    String nivel) {
+                                    TipoBaile tipoBaile) {
 
         Cliente clientes = obtenerCliente(cedulaCliente);
        // Empleado empleado = obtenerEmpleado(cedulaCliente);
@@ -355,8 +349,9 @@ public class Academia implements IAcademia {
         }
 
         Inscripcion inscripcion = new Inscripcion();
-        inscripcion.setCliente(clientes);
-        inscripcion.setCurso(curso);
+        inscripcion.setNumeroInscripcion(numeroIncripcion);
+        inscripcion.setClienteAsociado(clientes);
+        inscripcion.setCursoAsociado(curso);
 
         getListaInscripciones().add(inscripcion);
 
@@ -371,11 +366,39 @@ public class Academia implements IAcademia {
 
     @Override
     public boolean actualizarInscripcion(int numeroInscripcion,
-                                         String cedulaCliente, TipoBaile tipoBaile,
-                                         Categoria categoria, Nivel nivel) {
+                                         String cedulaCliente,
+                                         TipoBaile tipoBaile
+                                        ) {
 
-        int indice =
-                obtenerPosicionPorNumeroInscripcion(getListaInscripciones(),numeroInscripcion);
+        Inscripcion inscripcion = obtenerInscripcion(numeroInscripcion);
+
+        if(inscripcion == null){
+            return false;
+        }
+
+
+        //validar cliente
+        if(!inscripcion.getClienteAsociado().getCedula().equalsIgnoreCase(cedulaCliente)){
+            Cliente cliente = obtenerCliente(cedulaCliente);
+            if(cliente == null){
+                return false;
+            }
+            inscripcion.setClienteAsociado(cliente);
+        }
+
+        if(!inscripcion.getCursoAsociado().getTipoBaile().equals(tipoBaile)){
+            Curso curso = obtenerCurso(tipoBaile);
+            if(curso == null){
+                return false;
+            }
+            inscripcion.setCursoAsociado(curso);
+        }
+
+
+
+        /**int indice =
+                obtenerPosicionPorNumeroInscripcion(getListaInscripciones(),
+                        numeroInscripcion);
         boolean inscripcionExistente = false;
         for (Inscripcion inscripcion: getListaInscripciones()){
             if(inscripcion.getNumeroInscripcion()== numeroInscripcion){
@@ -386,18 +409,22 @@ public class Academia implements IAcademia {
         if(inscripcionExistente){
             imprimir("El tipo de baile ya existe, digite de nuevo el dato correcto");
         }else{
-            Cliente clienteActualizar = new Cliente(cedulaCliente);
-            Curso cursoActualizar = new Curso(tipoBaile,categoria,nivel);
-            listaInscripciones.get(indice).setNumeroInscripcion(numeroInscripcion);
-            listaInscripciones.get(indice).setCliente(clienteActualizar);
-            listaInscripciones.get(indice).setCurso(cursoActualizar);
-        }
+            if(indice==-1){
+                System.out.println("el indice es -1");
+            }else{
+                Cliente clienteActualizar = new Cliente(cedulaCliente);
+                Curso cursoActualizar = new Curso(tipoBaile,categoria,nivel);
+                listaInscripciones.get(indice).setNumeroInscripcion(numeroInscripcion);
+                listaInscripciones.get(indice).setClienteAsociado(clienteActualizar);
+                listaInscripciones.get(indice).setCursoAsociado(cursoActualizar);
+            }
+        }**/
         return true; //Pendiente
     }
 
     @Override
-    public boolean obtenerInscripcion(int numeroIncripcion) {
-        return false;
+    public Inscripcion obtenerInscripcion(int numeroIncripcion) {
+        return null;
     }
 
     public Cliente obtenerCliente(String cedula){
