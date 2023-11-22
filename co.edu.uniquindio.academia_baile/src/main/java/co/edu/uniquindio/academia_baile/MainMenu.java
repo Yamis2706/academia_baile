@@ -1,6 +1,8 @@
 package co.edu.uniquindio.academia_baile;
 
 import co.edu.uniquindio.academia_baile.model.Academia;
+import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
+import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
 import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
 
 import javax.swing.*;
@@ -190,7 +192,7 @@ public class MainMenu {
                         obtenerInscripciones(academia);
                         break;
                     case 3:
-
+                        actualizarInscripcion(academia);
                         break;
                     case 4:
                         String mensaje3 = "";
@@ -228,7 +230,8 @@ public class MainMenu {
         String tipoBaile = leerStringVentana("Ingrese el tipo baile");
         String categoria = leerStringVentana("Ingrese la categoria");
         String respuestNivel = leerStringVentana("Ingrese su Nivel");
-        academia.crearInscripcion(numeroInscripcion, cedulaCliente, TipoBaile.valueOf(tipoBaile), categoria,
+        academia.crearInscripcion(numeroInscripcion, cedulaCliente,
+                TipoBaile.valueOf(tipoBaile.toUpperCase()), categoria,
                 respuestNivel);
     }
     private static void obtenerInscripciones(Academia academia){
@@ -247,7 +250,7 @@ public class MainMenu {
         String mensaje2 = "";
         for (int i = 0; i < academia.getListaInscripciones().size(); i++) {
             String idCliente = Integer.toString(i+1);
-            mensaje2 += idCliente +". " +academia.getListaInscripciones().get(i).getNumeroInscripcion()+ "  " +
+            mensaje2 +=  academia.getListaInscripciones().get(i).getNumeroInscripcion()+" "+
                     academia.getListaInscripciones().get(i).getCurso().getTipoBaile()+ "  " +
                     academia.getListaInscripciones().get(i).getCliente().getCedula()+"  " +
                     academia.getListaInscripciones().get(i).getCliente().getNombre() +"  " +
@@ -261,11 +264,13 @@ public class MainMenu {
         );
         int numeroInscripcion = leerEnteroVentana("ingrese el numero de " +
                 "inscripcion");
-        String cedulaCliente = leerStringVentana("Digite el nuevo Nombre");
-        String tipoBaile = leerStringVentana("Digite el nuevo Apellido");
-        String categoria = leerStringVentana("Digite la nueva Cédula");
-        String respuestNivel = leerStringVentana("Digite el nuevo Correo");
-        academia.actualizarInscripcion(numeroInscripcion, cedulaCliente, TipoBaile.valueOf(tipoBaile), categoria,
-                respuestNivel);
+        String cedulaCliente = leerStringVentana("Digite la nueva cedula");
+        String tipoBaile = leerStringVentana("Digite el nuevo tipo baile: SALSA, CUMBIA, BALLE");
+        String categoria = leerStringVentana("Digite la nueva categoria  ADULTOS, JUVENIL, PREJUVENIL");
+        String respuestNivel = leerStringVentana("Digite el nuevo nivel:   ALTO, MEDIO, BAJO");
+        academia.actualizarInscripcion(numeroInscripcion, cedulaCliente,
+                TipoBaile.valueOf(tipoBaile.toUpperCase()),
+                Categoria.valueOf(categoria.toUpperCase()),
+                Nivel.valueOf(respuestNivel.toUpperCase()));
     }
 }

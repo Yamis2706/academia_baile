@@ -33,16 +33,19 @@ public class Curso {
      * @param categoria
      * @param nivel
      * @param profesor
-     * @param horario
-     * @param precioMes
      */
-    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, int horario,
-                 double precioMes) {
+    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel,
+                 String profesor) {
         this.tipoBaile = tipoBaile;
         this.categoria = categoria;
         this.nivel = nivel;
         this.profesor = profesor;
-        this.horario = horario;
+    }
+
+    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel) {
+        this.tipoBaile = tipoBaile;
+        this.categoria = categoria;
+        this.nivel = nivel;
     }
 
     /**

@@ -370,14 +370,15 @@ public class Academia implements IAcademia {
     }
 
     @Override
-    public boolean actualizarInscripcion(int numeroIncripcion,
+    public boolean actualizarInscripcion(int numeroInscripcion,
                                          String cedulaCliente, TipoBaile tipoBaile,
-                                         String categoria, String nivel) {
+                                         Categoria categoria, Nivel nivel) {
 
-        int indice = obtenerPosicionPorNumeroInscripcion(getListaInscripciones(),numeroIncripcion);
+        int indice =
+                obtenerPosicionPorNumeroInscripcion(getListaInscripciones(),numeroInscripcion);
         boolean inscripcionExistente = false;
         for (Inscripcion inscripcion: getListaInscripciones()){
-            if(inscripcion.getNumeroInscripcion()== numeroIncripcion){
+            if(inscripcion.getNumeroInscripcion()== numeroInscripcion){
                 inscripcionExistente = true;
                 break;
             }
@@ -385,12 +386,13 @@ public class Academia implements IAcademia {
         if(inscripcionExistente){
             imprimir("El tipo de baile ya existe, digite de nuevo el dato correcto");
         }else{
-            listaInscripciones.get(indice).setNumeroInscripcion(numeroIncripcion);
-
-            //listaInscripciones.get(indice).setCurso();
-
+            Cliente clienteActualizar = new Cliente(cedulaCliente);
+            Curso cursoActualizar = new Curso(tipoBaile,categoria,nivel);
+            listaInscripciones.get(indice).setNumeroInscripcion(numeroInscripcion);
+            listaInscripciones.get(indice).setCliente(clienteActualizar);
+            listaInscripciones.get(indice).setCurso(cursoActualizar);
         }
-        return false; //Pendiente
+        return true; //Pendiente
     }
 
     @Override

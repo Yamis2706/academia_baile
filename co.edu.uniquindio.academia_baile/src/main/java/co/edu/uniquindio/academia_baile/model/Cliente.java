@@ -21,6 +21,10 @@ public class Cliente extends Academia {
      */
     public Cliente() {
     }
+    public Cliente(String cedula) {
+        this.cedula = cedula;
+
+    }
 
     /**
      * Constructor con Parámetros
