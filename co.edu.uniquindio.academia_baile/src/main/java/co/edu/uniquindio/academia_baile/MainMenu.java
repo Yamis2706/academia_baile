@@ -12,7 +12,6 @@ import static co.edu.uniquindio.academia_baile.constantes.CursoConstantes.*;
 import static co.edu.uniquindio.academia_baile.constantes.EmpleadoConstantes.*;
 import static co.edu.uniquindio.academia_baile.constantes.InscripcionConstantes.*;
 import static co.edu.uniquindio.academia_baile.constantes.MenuConstantes.*;
-import static co.edu.uniquindio.academia_baile.constantes.PagoConstantes.*;
 import static co.edu.uniquindio.academia_baile.util.CapturaDatosUtil.*;
 
 public class MainMenu {
@@ -419,5 +418,14 @@ public class MainMenu {
         TipoBaile tipoBaileEliminar =
                 TipoBaile.valueOf(leerStringVentana(CURSO_PARA_ELIMINAR_TIPO_BAILE + mensaje3));
         academia.eliminarCurso(tipoBaileEliminar);
+    }
+
+    private static boolean validarCedulaExistente (String cedula){
+        if (validarCedulaExistente(cedula)) {
+            System.out.println("La cédula existe.");
+        } else {
+            System.out.println("La cédula no existe.  Digite un número diferente");
+        }
+        return false;
     }
 }
