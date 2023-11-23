@@ -1,40 +1,41 @@
 package co.edu.uniquindio.academia_baile;
 
-import co.edu.uniquindio.academia_baile.model.Academia;
+import co.edu.uniquindio.academia_baile.model.*;
 import co.edu.uniquindio.academia_baile.model.enumeracion.*;
 
-import static co.edu.uniquindio.academia_baile.MainMenu.opcionesMenuPrincipal;
+import static co.edu.uniquindio.academia_baile.MainMenu.*;
 
 public class Main {
-
     /**
      * Main Principal del Proyecto
      * @param args
      */
     public static void main(String[] args) {
-
-
         // Declaración Método Inicializar Datos Prueba
         Academia academiaBaile = inializarDatosPrueba();
 
-
         // Create (Crear) - Cliente
-        crearCliente("Juan Felipe", "Arias Sánchez", 24, "1094536998",
-                "juanf.ariass@bailaportussuenos.co", academiaBaile);
-        crearCliente("Ana María", "Alzate Mora", 35, "1067429755",
-                " anam.alzatem@bailaportussuenos.co", academiaBaile);
-        crearCliente("Camila", "Perez Gonzales", 22, "1055234787",
-                "camila.perezg@bailaportussuenos.co", academiaBaile);
 
+        crearCliente("Juan Felipe Arias Sánchez", 24, "1094536998",
+                academiaBaile);
+        crearCliente("Ana María Alzate Mora", 35, "1067429755", academiaBaile);
+        crearCliente("Camila Perez Gonzales", 22, "1055234787", academiaBaile);
 
         // Create (Crear) - Curso
-        crearCurso(TipoBaile.SALSA, Categoria.ADULTOS, Nivel.ALTO, "Si", 69, 180.000,
-                academiaBaile);
-        crearCurso(TipoBaile.CUMBIA, Categoria.JUVENIL, Nivel.MEDIO, "Si", 46, 150.000,
-                academiaBaile);
-        crearCurso(TipoBaile.BALLET, Categoria.PREJUVENIL, Nivel.ALTO, "Si", 25, 220.000,
-                academiaBaile);
+        crearCurso(TipoBaile.SALSA, Categoria.ADULTOS, Nivel.ALTO, "Yamileth " +
+                "Londoño Burgos", academiaBaile);
+        crearCurso(TipoBaile.CUMBIA, Categoria.JUVENIL, Nivel.MEDIO, "Karen " +
+                "Valentina Valbuena Reyes", academiaBaile);
+        crearCurso(TipoBaile.BALLET, Categoria.PREJUVENIL, Nivel.ALTO,
+                "Nelson Fabián Gallego Sánchez", academiaBaile);
 
+        // Create (Crear) - Empleado
+        crearEmpleado("Luis Alfonso Rodriguez", 45, "79523678",
+                "Auxiliar Administrativo", 1500000, academiaBaile);
+        crearEmpleado("Martha Higuera Cepeda", 65, "51337009",
+                "Asistente Administrativo", 2500000, academiaBaile);
+        crearEmpleado("Pilar Marcela Perez Choachi", 25, "1012544028",
+                "Auxiliar Administrativo", 1500000, academiaBaile);
 
         // Declaración Método Opciones Menú Principal
         opcionesMenuPrincipal(academiaBaile);
@@ -52,16 +53,15 @@ public class Main {
 
     /**
      * Método para Inicializar Datos Prueba Clase Cliente
+     *
      * @param nombre
-     * @param apellido
      * @param edad
      * @param cedula
-     * @param correo
      * @param academiaBaile
      */
-    private static void crearCliente(String nombre, String apellido, int edad, String cedula, String correo,
+    private static void crearCliente(String nombre, int edad, String cedula,
                                      Academia academiaBaile) {
-        academiaBaile.crearCliente(nombre, apellido, edad, cedula, correo);
+        academiaBaile.crearCliente(nombre, edad, cedula);
     }
 
     /**
@@ -70,12 +70,15 @@ public class Main {
      * @param categoria
      * @param nivel
      * @param profesor
-     * @param horario
-     * @param precioMes
      * @param academiaBaile
      */
-    private static void crearCurso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, int horario,
-                                   double precioMes, Academia academiaBaile) {
-        academiaBaile.crearCurso(tipoBaile, categoria, nivel, profesor, horario, precioMes);
+    private static void crearCurso(TipoBaile tipoBaile, Categoria categoria,
+                                   Nivel nivel, String profesor, Academia academiaBaile) {
+        academiaBaile.crearCurso(tipoBaile, categoria, nivel, profesor);
+    }
+
+    private static void crearEmpleado(String nombre, int edad, String cedula, String cargo,
+                                      double salario, Academia academiaBaile) {
+        academiaBaile.crearEmpleado(nombre, edad, cedula, cargo, salario);
     }
 }

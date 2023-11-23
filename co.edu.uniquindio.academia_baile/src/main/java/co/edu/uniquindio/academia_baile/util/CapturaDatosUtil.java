@@ -1,9 +1,10 @@
 package co.edu.uniquindio.academia_baile.util;
 
+import co.edu.uniquindio.academia_baile.MainMenu;
+
 import javax.swing.*;
 
 public class CapturaDatosUtil {
-
     /**
      * Método para Imprimir Mensaje Librería JOptionPane
      * @param mensaje
@@ -31,5 +32,12 @@ public class CapturaDatosUtil {
         String respuesta = "";
         respuesta  = JOptionPane.showInputDialog(mensaje);
         return respuesta;
+    }
+
+    public static String  MensajeError(String mensaje) {
+        MainMenu mainMenu = new MainMenu();
+        String respuesta = "";
+        return respuesta = JOptionPane.showInputDialog(null,
+                "Escriba nuevamente la cedula", "Error!", JOptionPane.ERROR_MESSAGE);
     }
 }

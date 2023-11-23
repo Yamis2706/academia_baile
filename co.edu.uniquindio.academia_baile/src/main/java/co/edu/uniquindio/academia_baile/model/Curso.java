@@ -1,11 +1,8 @@
 package co.edu.uniquindio.academia_baile.model;
 
-import co.edu.uniquindio.academia_baile.model.enumeracion.Categoria;
-import co.edu.uniquindio.academia_baile.model.enumeracion.Nivel;
-import co.edu.uniquindio.academia_baile.model.enumeracion.TipoBaile;
+import co.edu.uniquindio.academia_baile.model.enumeracion.*;
 
 public class Curso {
-
     /**
      * Atributos Clase Curso
      */
@@ -26,7 +23,8 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor, Academia ownedByAcademia) {
+    public Curso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor,
+                 Academia ownedByAcademia) {
         this.tipoBaile = tipoBaile;
         this.categoria = categoria;
         this.nivel = nivel;

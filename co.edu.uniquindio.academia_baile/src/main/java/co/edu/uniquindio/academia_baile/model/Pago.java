@@ -1,7 +1,6 @@
 package co.edu.uniquindio.academia_baile.model;
 
 public class Pago {
-
     /**
      * Atributos Clase Pago
      */

@@ -1,7 +1,6 @@
 package co.edu.uniquindio.academia_baile.model;
 
 public class Cliente extends Persona {
-
     /**
      * Variable para Relacionar Padre
      */

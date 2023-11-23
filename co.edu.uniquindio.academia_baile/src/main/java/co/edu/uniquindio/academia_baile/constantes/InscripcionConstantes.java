@@ -1,19 +1,18 @@
 package co.edu.uniquindio.academia_baile.constantes;
 
 public class InscripcionConstantes {
-    public static final String INGRESE_NOMBRE_CLIENTE = "Ingrese el nombre del cliente";
-    public static final String INGRESE_APELIIDO_CLIENTE = "Ingrese el apellido del cliente";
-    public static final String INGRESE_CEDULA_CLIENTE = "Ingrese la cedula del cliente";
-    public static final String INGRESE_CEDULA_CLIENTE_ACTUAL = "Ingrese la cedula actual del cliente";
-    public static final String INGRESE_EDAD_CLIENTE = "Ingrese la edad del cliente";
-
-    public static final String CLIENTE_CREADO = "El cliente se ha creado con éxito";
-    public static final String CLIENTE_NO_CREADO = "No se pudo crear el cliente, ya existe¡¡¡¡";
-
-    public static final String CLIENT_ENCONTRADO = "Cliente encontrado: ";
-    public static final String CLIENT_NO_EXISTE = "El cliente no existe";
-    public static final String CLIENTE_ELIMINADO = "El cliente se ha eliminado con éxito";
-    public static final String CLIENTE_ACTUALIZADO = "El cliente se ha actualizado con éxito";
-
-    public static final String CLIENTE_NO_ACTUALIZADO = "No se pudo actualizar el cliente,no existe¡¡¡¡";
+    public static final String MENSAJE_CREAR_INSCRIPCION = "Ha seleccionado " +
+            "la opcion 1 - Crear inscripción" +
+            "\n" +"Por favor diligenciar los siguientes datos:";
+    public static final String INGRESAR_NUMERO_INSCRIPCION ="Ingrese el " +
+            "número de inscripción";
+    public static final String INGRESAR_TIPO_BAILE ="Ingrese el tipo baile: " +
+            "SALSA, CUMBIA, BALLET";
+    public static final String INGRESAR_CEDULA_CLIENTE_REGISTRADO ="Ingrese " +
+            "la cédula del cliente previamente registrado" +
+            "cliente";
+    public static final String INGRESAR_NUMERO_INSCRIPCION_ACTUALIZAR =
+            "Ingrese el nÚmero de inscripción que desea actualizar";
+    public static final String ELIMINAR_INSCRIPCION ="Para eliminar la " +
+            "inscripción, por favor digitar el número de inscripción:";
 }
