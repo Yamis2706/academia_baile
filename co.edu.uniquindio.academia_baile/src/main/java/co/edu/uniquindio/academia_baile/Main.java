@@ -31,11 +31,11 @@ public class Main {
 
         // Create (Crear) - Empleado
         crearEmpleado("Luis Alfonso Rodriguez", 45, "79523678",
-                "Auxiliar Administrativo", 1500000, academiaBaile);
+                "Profesor", 1500000, academiaBaile);
         crearEmpleado("Martha Higuera Cepeda", 65, "51337009",
-                "Asistente Administrativo", 2500000, academiaBaile);
+                "Administradora", 2500000, academiaBaile);
         crearEmpleado("Pilar Marcela Perez Choachi", 25, "1012544028",
-                "Auxiliar Administrativo", 1500000, academiaBaile);
+                "Secretaria", 1500000, academiaBaile);
 
         // Declaración Método Opciones Menú Principal
         opcionesMenuPrincipal(academiaBaile);

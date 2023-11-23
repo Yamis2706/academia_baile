@@ -44,14 +44,20 @@ public class MainTransaccion {
         empleado1.setNombre("Sofía Garcia Serpa");
         empleado1.setCedula("1080234917");
         empleado1.setEdad(41);
+        empleado1.setCargo("Secretaria");
+        empleado1.setSalario(1500000);
         Empleado empleado2 = new Empleado();
-        empleado1.setNombre("Camilo Torres Zapata");
-        empleado1.setCedula("79522506");
-        empleado1.setEdad(64);
+        empleado2.setNombre("Camilo Torres Zapata");
+        empleado2.setCedula("79522506");
+        empleado2.setEdad(64);
+        empleado2.setCargo("Profesor");
+        empleado2.setSalario(1500000);
         Empleado empleado3 = new Empleado();
-        empleado1.setNombre("Ana María Quintero Cubillos");
-        empleado1.setCedula("1118453761");
-        empleado1.setEdad(24);
+        empleado3.setNombre("Ana María Quintero Cubillos");
+        empleado3.setCedula("1118453761");
+        empleado3.setEdad(24);
+        empleado3.setCargo("Administradora");
+        empleado3.setSalario(2500000);
 
         Curso curso1 = new Curso();
         curso1.setTipoBaile(SALSA);

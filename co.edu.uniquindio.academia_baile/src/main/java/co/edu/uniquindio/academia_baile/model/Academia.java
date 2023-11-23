@@ -181,8 +181,8 @@ public class Academia implements IAcademia {
      */
     @Override
     public void eliminarCliente(String cedula) {
-        int tamanioLista = getListaClientes().size();
-        for (int i=0; i < tamanioLista; i++){
+        int tamanoLista = getListaClientes().size();
+        for (int i=0; i < tamanoLista; i++){
             Cliente cliente = getListaClientes().get(i);
             if(cliente.getCedula().equalsIgnoreCase(cedula)){
                 getListaClientes().remove(i);
@@ -231,7 +231,10 @@ public class Academia implements IAcademia {
      */
     public  void actualizarCurso(TipoBaile tipoBaileActualizar, List<Curso> lista,
                                  TipoBaile tipoBaile, Categoria categoria, Nivel nivel,
-                                 String profesor, int horario, double precioMes){
+                                 String profesor, int horario,
+                                 double precioMes,
+                                 Categoria actualizarCategoria, Nivel actualizarNivel
+            , String actualizarProfesor){
         int indice = obtenerPosicionPorTipoBaile(lista,tipoBaileActualizar);
         boolean tipoBaileExistente = false;
         for (Curso curso: lista){
@@ -247,6 +250,17 @@ public class Academia implements IAcademia {
             listaCursos.get(indice).setCategoria(categoria);
             listaCursos.get(indice).setNivel(nivel);
             listaCursos.get(indice).setProfesor(profesor);
+        }
+    }
+
+    public void eliminarCurso(TipoBaile tipoBaile) {
+        int tamanoLista = getListaCursos().size();
+        for (int i=0; i < tamanoLista; i++){
+            Curso curso = getListaCursos().get(i);
+            if(curso.getTipoBaile().equalsIgnoreCase(tipoBaile)){
+                getListaCursos().remove(i);
+                break;
+            }
         }
     }
 
@@ -281,16 +295,6 @@ public class Academia implements IAcademia {
      * Método para Eliminar Curso
      * @param tipoBaile
      */
-    public void eliminarCurso(TipoBaile tipoBaile) {
-        int tamanoLista = getListaCursos().size();
-        for (int i=0; i < tamanoLista; i++){
-            Curso curso = getListaCursos().get(i);
-            if(curso.getTipoBaile().equalsIgnoreCase(tipoBaile)){
-                getListaCursos().remove(i);
-                break;
-            }
-        }
-    }
 
     @Override
     public boolean crearInscripcion(int numeroIncripcion, String cedulaCliente,
@@ -412,16 +416,6 @@ public class Academia implements IAcademia {
         return mensaje;
     }
 
-    public Empleado obtenerEmpleado(String cedulaEmpleado) {
-        Empleado empleadoEncontrado = null;
-        for (Empleado empleado: getListaEmpleados()) {
-            if (empleado.getCedula().equalsIgnoreCase(cedulaEmpleado)){
-                empleadoEncontrado = empleado;
-            }
-        }
-        return empleadoEncontrado;
-    }
-
     public Curso obtenerCurso(TipoBaile tipoBaile) {
         Curso cursoEncontrado = null;
         for (Curso curso: getListaCursos()) {
@@ -432,7 +426,95 @@ public class Academia implements IAcademia {
         return cursoEncontrado;
     }
 
-    public void crearEmpleado(String nombre, int edad, String cedula, String cargo,
-                              double salario) {
+    @Override
+    public String obtenerListaCurso(){
+        String mensaje ="";
+        for (int i = 0; i < obtenerCursos().size(); i++) {
+            String idCurso = Integer.toString(i+1);
+            mensaje += idCurso +". "+ obtenerCursos().get(i).getTipoBaile()+
+                    " Categoría: " + obtenerCursos().get(i).getCategoria() +
+                    " Nivel: " + obtenerCursos().get(i).getNivel()+ "\n" +
+                    " Profesor: " + obtenerCursos().get(i).getProfesor()+ "\n";
+        }
+        return mensaje;
+    }
+
+    public void crearEmpleado(String nombre, int edad, String cedula, String cargo, double salario) {
+        Empleado empleado = new Empleado();
+        boolean cedulaExistente = false;
+        for (Empleado empleado2 : listaEmpleados) {
+            if (empleado2.getCedula().equals(cedula)) {
+                cedulaExistente = true;
+                break;
+            }
+        }
+        if (cedulaExistente) {
+            imprimir("El número de cédula ya existe, digite de nuevo el dato " +
+                    "correcto ¡¡¡");
+        } else {
+            empleado.setNombre(nombre);
+            empleado.setEdad(edad);
+            empleado.setCedula(cedula);
+            empleado.setCargo(cargo);
+            empleado.setSalario(salario);
+            getListaEmpleados().add(empleado);
+        }
+    }
+
+    public List<Empleado> obtenerEmpleados() {
+        return getListaEmpleados();
+    }
+
+    @Override
+    public String obtenerListaEmpleado(){
+        String mensaje ="";
+        for (int i = 0; i < obtenerEmpleados().size(); i++) {
+            String idEmpleado = Integer.toString(i+1);
+            mensaje += idEmpleado +". "+ obtenerEmpleados().get(i).getNombre()+
+                    " C.C.: " + obtenerEmpleados().get(i).getCedula() +
+                    " Edad: " + obtenerEmpleados().get(i).getEdad()+ "\n" +
+                    " Cargo: " + obtenerEmpleados().get(i).getCargo()+ "\n" +
+                    " Salario: " + obtenerEmpleados().get(i).getSalario()+ "\n";
+        }
+        return mensaje;
+    }
+
+    public void actualizarEmpleado(String cedulaActualizar, String nombre, int edad, String cedula,
+                                   String cargo, double salario) {
+        Empleado empleadoEncontrado = obtenerEmpleado(cedulaActualizar);
+        if(empleadoEncontrado!=null){
+            empleadoEncontrado.setNombre(nombre);
+            empleadoEncontrado.setEdad(edad);
+            empleadoEncontrado.setCedula(cedula);
+            empleadoEncontrado.setCargo(cargo);
+            empleadoEncontrado.setSalario(salario);
+        }else {
+        }
+    }
+
+    public Empleado obtenerEmpleado(String cedulaEmpleado) {
+        Empleado empleadoEncontrado = null;
+        for (Empleado empleado: getListaEmpleados()) {
+            if (empleado.getCedula().equalsIgnoreCase(cedulaEmpleado)){
+                empleadoEncontrado = empleado;
+            }
+        }
+        return empleadoEncontrado;
+    }
+
+    public void eliminarEmpleado(String cedula) {
+        int tamanoLista = getListaEmpleados().size();
+        for (int i=0; i < tamanoLista; i++){
+            Empleado empleado = getListaEmpleados().get(i);
+            if(empleado.getCedula().equalsIgnoreCase(cedula)){
+                getListaEmpleados().remove(i);
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void actualizarCurso(TipoBaile tipoBaileActualizar, Categoria actualizarCategoria, Nivel actualizarNivel, String actualizarProfesor) {
+
     }
 }

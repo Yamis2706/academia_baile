@@ -8,8 +8,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static co.edu.uniquindio.academia_baile.constantes.ClienteConstantes.*;
+import static co.edu.uniquindio.academia_baile.constantes.CursoConstantes.*;
+import static co.edu.uniquindio.academia_baile.constantes.EmpleadoConstantes.*;
 import static co.edu.uniquindio.academia_baile.constantes.InscripcionConstantes.*;
 import static co.edu.uniquindio.academia_baile.constantes.MenuConstantes.*;
+import static co.edu.uniquindio.academia_baile.constantes.PagoConstantes.*;
 import static co.edu.uniquindio.academia_baile.util.CapturaDatosUtil.*;
 
 public class MainMenu {
@@ -29,8 +32,20 @@ public class MainMenu {
         return MENU_CLIENTES;
     }
 
+    public static String mostrarMenuEmpleados() {
+        return MENU_EMPLEADOS;
+    }
+
+    public static String mostrarMenuCursos() {
+        return MENU_CURSOS;
+    }
+
     public static String mostrarMenuInscripciones() {
         return MENU_INSCRIPCIONES;
+    }
+
+    public static String mostrarMenuPagos() {
+        return MENU_PAGOS;
     }
 
     /**
@@ -49,16 +64,15 @@ public class MainMenu {
                         menuClientes(academia);
                         break;
                     case 2:
-
+                        menuEmpleados(academia);
                         break;
                     case 3:
-
+                        menuCursos(academia);
                         break;
                     case 4:
                         menuInscripcion(academia);
                         break;
                     case 5:
-
                         break;
                     case 6:
                         salir = true;
@@ -87,8 +101,7 @@ public class MainMenu {
                 switch (opcion) {
                     case 1:
                         imprimir(MENSAJE_CREAR_CLIENTE);
-                        crearCliente("Juan Felipe Arias Sánchez", 24,
-                                "1094536998", academia);
+                        crearCliente(academia);
                         break;
                     case 2:
                         obtenerListaCLiente(academia);
@@ -101,6 +114,92 @@ public class MainMenu {
                         break;
                     case 5:
                         ObtenerClienteCedula(academia);
+                        break;
+                    case 6:
+
+                        break;
+                    case 7:
+
+                        break;
+                    case 8:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Solo se permiten los números " +
+                                "entre 1 y 8");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debe digitar un número");
+                sn.next();
+            }
+        }
+    }
+
+    public static void menuEmpleados(Academia academia) {
+        Scanner sn = new Scanner(System.in);
+        boolean salir = false;
+        int opcion;
+        while (!salir) {
+            opcion = leerEnteroVentana(mostrarMenuEmpleados());
+            try {
+                switch (opcion) {
+                    case 1:
+                        crearEmpleado(academia);
+                        break;
+                    case 2:
+                        obtenerListaEmpleado(academia);
+                        break;
+                    case 3:
+                        actualizarEmpleado(academia);
+                        break;
+                    case 4:
+                        eliminarEmpleado(academia);
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+
+                        break;
+                    case 7:
+
+                        break;
+                    case 8:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Solo se permiten los números " +
+                                "entre 1 y 8");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Debe digitar un número");
+                sn.next();
+            }
+        }
+    }
+
+    public static void menuCursos(Academia academia) {
+        Scanner sn = new Scanner(System.in);
+        boolean salir = false;
+        int opcion;
+        while (!salir) {
+            opcion = leerEnteroVentana(mostrarMenuCursos());
+            try {
+                switch (opcion) {
+                    case 1:
+                        crearCurso(academia);
+                        break;
+                    case 2:
+                        obtenerListaCurso(academia);
+                        break;
+                    case 3:
+                        actualizarCurso(academia);
+                        break;
+                    case 4:
+                        eliminarCurso(academia);
+                        break;
+                    case 5:
+
                         break;
                     case 6:
 
@@ -196,8 +295,7 @@ public class MainMenu {
         academia.eliminarInscripcion(numeroInscripcionEliminar);
     }
 
-    private static void crearCliente(String juanFelipeAriasSánchez, int i, String number,
-                                     Academia academia){
+    private static void crearCliente(Academia academia){
         String respuestaNombre = leerStringVentana(INGRESE_NOMBRE_CLIENTE);
         int respuestaEdad =  leerEnteroVentana (INGRESE_EDAD_CLIENTE);
         String respuestaCedula = leerStringVentana(INGRESE_CEDULA_CLIENTE);
@@ -216,8 +314,8 @@ public class MainMenu {
         int actualizarEdad = leerEnteroVentana(INGRESE_EDAD_CLIENTE);
         String actualizarCedula = leerStringVentana(INGRESE_CEDULA_CLIENTE);
         int operacion = 2;
-        academia.actualizarCliente
-                (cedulaActualizar,actualizarNombre,actualizarEdad,actualizarCedula);
+        academia.actualizarCliente (cedulaActualizar,actualizarNombre, actualizarEdad,
+                actualizarCedula);
     }
 
     private static void eliminarCliente(Academia academia){
@@ -242,5 +340,84 @@ public class MainMenu {
             imprimir(nombreCliente + " CC: " + nombreCedula + " edad " + edad);
             menuClientes(academia);
         }
+    }
+
+    private static void crearEmpleado(Academia academia){
+        String respuestaNombre =
+                leerStringVentana(INGRESE_NOMBRE_EMPLEADO);
+        int respuestaEdad =  leerEnteroVentana (INGRESE_EDAD_EMPLEADO);
+        String respuestaCedula = leerStringVentana(INGRESE_CEDULA_EMPLEADO);
+        String respuestaCargo = leerStringVentana(INGRESE_CARGO_EMPLEADO);
+        double respuestaSalario = leerDoubleVentana(INGRESE_SALARIO_EMPLEADO);
+        academia.crearEmpleado(respuestaNombre, respuestaEdad,
+                respuestaCedula, respuestaCargo, respuestaSalario);
+    }
+
+    private static void obtenerListaEmpleado(Academia academia){
+        String mensaje = academia.obtenerListaEmpleado();
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+
+    public static void actualizarEmpleado(Academia academia){
+        String mensaje2 = academia.obtenerListaEmpleado();
+        String cedulaActualizar =
+                leerStringVentana(EMPLEADO_PARA_ACTUALIZAR + mensaje2);
+        String actualizarNombre = leerStringVentana(INGRESE_NOMBRE_EMPLEADO);
+        int actualizarEdad = leerEnteroVentana(INGRESE_EDAD_EMPLEADO);
+        String actualizarCedula = leerStringVentana(INGRESE_CEDULA_EMPLEADO);
+        String actualizarCargo = leerStringVentana(INGRESE_CARGO_EMPLEADO);
+                double actualizarSalario =
+                        leerDoubleVentana(INGRESE_SALARIO_EMPLEADO);
+        int operacion = 2;
+        academia.actualizarEmpleado (cedulaActualizar, actualizarNombre, actualizarEdad,
+                actualizarCedula, actualizarCargo, actualizarSalario);
+    }
+
+    private static void eliminarEmpleado(Academia academia){
+        String mensaje3 = academia.obtenerListaEmpleado();
+        String numeroCedulaEmpleadoEliminar =
+                leerStringVentana(EMPLEADO_PARA_ELIMINAR + mensaje3);
+        academia.eliminarEmpleado(numeroCedulaEmpleadoEliminar);
+    }
+
+    private static void crearCurso(Academia academia){
+        TipoBaile respuestaTipoBaile =
+                TipoBaile.valueOf(leerStringVentana(INGRESE_TIPO_BAILE_CURSO));
+        Categoria respuestaCategoria =
+                Categoria.valueOf(leerStringVentana(INGRESE_CATEGORIA_CURSO));
+        Nivel respuestaNivel =
+                Nivel.valueOf(leerStringVentana(INGRESE_NIVEL_CURSO));
+        String respuestaProfesor =
+                leerStringVentana (INGRESE_PROFESOR_CURSO);
+        academia.crearCurso(respuestaTipoBaile, respuestaCategoria,
+                respuestaNivel, respuestaProfesor);
+    }
+
+    private static void obtenerListaCurso(Academia academia){
+        String mensaje = academia.obtenerListaCurso();
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+
+    public static void actualizarCurso(Academia academia){
+        String mensaje2 = academia.obtenerListaCurso();
+        TipoBaile tipoBaileActualizar =
+                TipoBaile.valueOf(leerStringVentana(CURSO_PARA_ACTUALIZAR_TIPO_BAILE +
+                        mensaje2));
+        Categoria actualizarCategoria =
+                Categoria.valueOf(leerStringVentana(CURSO_PARA_ACTUALIZAR_CATEGORIA));
+        Nivel actualizarNivel = Nivel.valueOf(leerStringVentana(CURSO_PARA_ACTUALIZAR_NIVEL));
+        String actualizarProfesor = leerStringVentana(CURSO_PARA_ACTUALIZAR_PROFESOR);
+
+        int operacion = 2;
+        academia.actualizarCurso (tipoBaileActualizar, actualizarCategoria,
+                actualizarNivel,
+                actualizarProfesor);
+    }
+
+    private static void eliminarCurso(Academia academia){
+        String mensaje3 = academia.obtenerListaCurso();
+        TipoBaile tipoBaileEliminar =
+                TipoBaile.valueOf(leerStringVentana(CURSO_PARA_ELIMINAR_TIPO_BAILE + mensaje3));
+        academia.eliminarCurso(tipoBaileEliminar);
     }
 }

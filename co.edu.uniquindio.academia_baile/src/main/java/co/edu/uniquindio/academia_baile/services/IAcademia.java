@@ -12,9 +12,12 @@ public interface IAcademia {
     void eliminarCliente(String cedula);
     boolean crearCurso(TipoBaile tipoBaile, Categoria categoria, Nivel nivel, String profesor);
     List<Curso> obtenerCursos();
-    void actualizarCurso(TipoBaile tipoBaileActualizar, List<Curso> lista, TipoBaile tipoBaile,
-                                 Categoria categoria, Nivel nivel,
-                         String profesor, int horario, double precioMes);
+    void actualizarCurso(TipoBaile tipoBaileActualizar, List<Curso> lista,
+                                 TipoBaile tipoBaile, Categoria categoria, Nivel nivel,
+                                 String profesor, int horario,
+                                 double precioMes,
+                         Categoria actualizarCategoria, Nivel actualizarNivel
+            , String actualizarProfesor);
     static int obtenerPosicionPorTipoBaile(List<Curso> lista,
                                            TipoBaile tipoBaile) {
         return 0;
@@ -35,7 +38,16 @@ public interface IAcademia {
     Cliente obtenerCliente(String cedula);
     Cliente obtenerClienteCedula(String cedula,Academia academia, int operacion);
     String obtenerListaCliente();
-    Empleado obtenerEmpleado(String cedulaEmpleado);
     Curso obtenerCurso(TipoBaile tipoBaile);
-    void crearEmpleado(String nombre, int edad, String cedula, String cargo, double salario);
+    String obtenerListaCurso();
+    void crearEmpleado(String nombre, int edad, String cedula, String cargo,
+                    double salario);
+    List<Empleado> obtenerEmpleados();
+    String obtenerListaEmpleado();
+    void actualizarEmpleado(String cedulaActualizar, String nombre, int edad, String cedula,
+                            String cargo, double salario);
+    Empleado obtenerEmpleado(String cedulaEmpleado);
+    void eliminarEmpleado(String cedula);
+
+    void actualizarCurso(TipoBaile tipoBaileActualizar, Categoria actualizarCategoria, Nivel actualizarNivel, String actualizarProfesor);
 }
